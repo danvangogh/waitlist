@@ -1,5 +1,4 @@
 const express = require('express');
-
 const app = express();
 
 app.get('/api/customers', (req, res) => {
@@ -29,7 +28,6 @@ app.get('/api/customers', (req, res) => {
     status: 1,
     confirmed: false},
   ]
-
   res.json(customers);
 });
 
