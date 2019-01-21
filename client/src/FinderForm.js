@@ -1,16 +1,33 @@
 import './App.css';
 import React, { Component } from 'react';
 import Results from './Results.js'
+import axios from 'axios'
 
 class FinderForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      firstName: "",
-      lastName: "",
+      customers: [],
       emailAddress: "",
+      showQ: false,
+      index: 0,
+      pending: [],
     };
   }
+
+  componentDidMount() {
+    axios.get('./api/customers')
+      .then((response) => {
+        this.setState({
+          customers: response.data
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      console.log(this.state.customers)
+    }
+
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
@@ -18,29 +35,47 @@ class FinderForm extends Component {
 
   onClick = (e) => {
     e.preventDefault();
-    console.log(this.state)
+    this.sorter(this.state.customers)
+  }
+
+
+
+  sorter = (arr) => {
+    console.log("arr: ", arr)
+    const pendingEntries = [];
+    const confirmedEntries = [];
+    const address = this.state.emailAddress
+
+    let userIndex = 0;
+    let tru = 0;
+    let currentIndex = 0;
+
+    arr.forEach(function(customer, index) {
+      if (customer.statusCode !== 0) {
+        confirmedEntries.push(customer)
+      } else {
+        pendingEntries.push(customer)
+      }
+      if (customer.emailAddress === address) {
+        userIndex = index + 1;
+      }
+      tru = confirmedEntries.length;
+      currentIndex = userIndex - tru
+    })
+    this.setState({
+      index: currentIndex,
+      showQ: true,
+      pending: pendingEntries,
+    });
   }
 
   render() {
 
-    const { firstName, lastName, emailAddress } = this.state;
+    const { emailAddress } = this.state;
 
     return(
       <div className="client-form">
         <form>
-          <input
-            name="firstName"
-            value={firstName}
-            type="text"
-            placeholder="First name..."
-            onChange={this.onChange}></input>
-          <br />
-          <input
-            name="lastName"
-            value={lastName}
-            placeholder="Last name..."
-            onChange={this.onChange}></input>
-          <br />
           <input
             name="emailAddress"
             value={emailAddress}
@@ -53,7 +88,7 @@ class FinderForm extends Component {
             onClick={this.onClick}
             value="Click it"></button>
         </form>
-        <Results client={this.state} />
+        <Results showQ={this.state.showQ} index={this.state.index} pending={this.state.pending.length}/>
       </div>
     )
   }
