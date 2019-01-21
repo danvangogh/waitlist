@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import axios from 'axios';
+
+import AdminForm from './AdminForm';
 
 class Admin extends Component {
   constructor(props) {
@@ -11,8 +11,11 @@ class Admin extends Component {
   };
   render() {
     return(
-      <h2>this is admin</h2>
-      
+      <div>
+        <h2>this is admin</h2>
+        <AdminForm />
+      </div>
+
     )
   }
 }
