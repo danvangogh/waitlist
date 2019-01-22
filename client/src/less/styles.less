@@ -1,0 +1,46 @@
+@green: #19D183;
+@font-family: 'Luckiest Guy', cursive;
+@white: #f4f4f4;
+@purple: #A779FF;
+
+html {
+  font-size: 12px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  font-size: 14vw;
+  color: @white;
+  font-family: @font-family;
+}
+h2 {
+  font-size: 12vw;
+  color: @white;
+  font-family: @font-family;
+}
+
+button:focus {
+  outline: 0;
+}
+
+@media (min-width: 580px) {
+  h1 {
+    font-size: 8vw;
+  }
+  h2 {
+    font-size: 6vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 6rem;
+  }
+}

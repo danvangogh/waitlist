@@ -1,4 +1,3 @@
-import './App.css';
 import React, { Component } from 'react';
 import Results from './Results.js'
 import axios from 'axios'
@@ -75,9 +74,10 @@ class FinderForm extends Component {
 
     return(
       <div className="App client-form">
-        <h2>Enter your email to see your position in the queue</h2>
-          <form>
+        <h1 className="title">Enter your email to see your position in the queue</h1>
+          <form className="check-form">
             <input
+              className="email"
               name="emailAddress"
               value={emailAddress}
               type="email"
@@ -85,6 +85,7 @@ class FinderForm extends Component {
               onChange={this.onChange}></input>
             <br />
             <button
+              className="check-button"
               type="submit"
               onClick={this.onClick}
               value="Click it"></button>

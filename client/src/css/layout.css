@@ -1,0 +1,88 @@
+html {
+  font-size: 12px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+h1 {
+  font-size: 14vw;
+  color: #f4f4f4;
+  font-family: 'Luckiest Guy', cursive;
+}
+h2 {
+  font-size: 12vw;
+  color: #f4f4f4;
+  font-family: 'Luckiest Guy', cursive;
+}
+button:focus {
+  outline: 0;
+}
+@media (min-width: 580px) {
+  h1 {
+    font-size: 8vw;
+  }
+  h2 {
+    font-size: 6vw;
+  }
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 6rem;
+  }
+}
+.client-form {
+  padding: 1em;
+  display: grid;
+  height: 100vh;
+  background-color: #19D183;
+  text-align: center;
+  color: #f4f4f4;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-areas: "a a a" "b b b" ". c .";
+}
+.title {
+  grid-area: a;
+  padding-top: 2rem;
+}
+.check-form {
+  grid-area: b;
+}
+.results {
+  grid-area: c;
+}
+.email {
+  width: 25vw;
+  border: none;
+  border-radius: 2rem;
+  height: 2rem;
+  text-align: center;
+  background-color: #64ecb2;
+  color: #A779FF;
+}
+.email:focus {
+  width: 60vw;
+  outline: 0px;
+  -webkit-transition: width 0.3s ease-out;
+  -moz-transform: scale(0.5);
+}
+.email::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #c8acff;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c8acff;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #c8acff;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #c8acff;
+}

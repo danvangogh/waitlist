@@ -15,7 +15,7 @@ class Results extends Component {
       );
     }
     return(
-      <h4>waiting...</h4>
+      <h4 className="results">waiting...</h4>
     )
 
   }
