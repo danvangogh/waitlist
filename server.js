@@ -44,6 +44,9 @@ app.post("/api/admin", (req, res) => {
   .then((customers) => {
     res.status(200).json(customers);
   })
+  .catch((error) => {
+    res.status(500).json({ error });
+  });
 });
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

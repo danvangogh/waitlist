@@ -11,6 +11,7 @@ class FinderForm extends Component {
       showQ: false,
       index: 0,
       pending: [],
+      name: "",
     };
   }
 
@@ -27,7 +28,6 @@ class FinderForm extends Component {
       console.log(this.state.customers)
     }
 
-
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value.toLowerCase() });
     if ((this.state.emailAddress).length <= 1) {
@@ -37,10 +37,11 @@ class FinderForm extends Component {
 
   onClick = (e) => {
     e.preventDefault();
-    this.sorter(this.state.customers)
+    if ((this.state.emailAddress).length > 0) {
+      this.sorter(this.state.customers);
+      this.setState({ emailAddress: '' });
+    }
   }
-
-
 
   sorter = (arr) => {
     console.log("arr: ", arr)
@@ -51,6 +52,7 @@ class FinderForm extends Component {
     let userIndex = 0;
     let tru = 0;
     let currentIndex = 0;
+    let fName = "";
 
     arr.forEach(function(customer, index) {
       if (customer.statusCode !== 0) {
@@ -59,6 +61,7 @@ class FinderForm extends Component {
         pendingEntries.push(customer)
       }
       if (customer.emailAddress === address) {
+        fName = customer.firstName;
         userIndex = index + 1;
       }
       tru = confirmedEntries.length;
@@ -68,6 +71,7 @@ class FinderForm extends Component {
       index: currentIndex,
       showQ: true,
       pending: pendingEntries,
+      name: fName,
     });
   }
 
@@ -92,7 +96,7 @@ class FinderForm extends Component {
               type="submit"
               onClick={this.onClick}>Go</button>
           </form>
-          <Results showQ={this.state.showQ} index={this.state.index} pending={this.state.pending.length}/>
+          <Results showQ={this.state.showQ} index={this.state.index} pending={this.state.pending.length} name={this.state.name}/>
       </div>
     )
   }

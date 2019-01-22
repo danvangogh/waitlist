@@ -22,15 +22,14 @@ class AdminForm extends Component {
     e.preventDefault();
 
     axios.post("./api/admin", {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      emailAddress: this.state.emailAddress.toLowerCase(),
+      firstName: this.state.firstName.trim(),
+      lastName: this.state.lastName.trim(),
+      emailAddress: this.state.emailAddress.toLowerCase().trim(),
       statusCode: this.state.statusCode,
-      photo_url: this.state.photo_url,
-      twitter_url: this.state.twitter_url
     })
     .then(function (response) {
       console.log(response.data);
+
     })
     .catch(function (error) {
       console.log(error);

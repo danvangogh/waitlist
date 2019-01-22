@@ -5,11 +5,11 @@ class Results extends Component {
     super(props)
   }
   render() {
-    const { showQ, index, pending } = this.props
+    const { showQ, index, pending, name } = this.props
     if (showQ && index >= 1) {
       return (
           <div className="results">
-            <h5>You are in position # {index} of:{pending}</h5>
+            <h5>Hi {name}! You are in position # {index} of:{pending}</h5>
           </div>
       );
     } else if (showQ && index < 1) {
@@ -19,7 +19,7 @@ class Results extends Component {
     } else if (!showQ) {
       return(
         <h4 className="results">waiting...</h4>
-      )  
+      )
     }
   }
 }
