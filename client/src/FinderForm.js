@@ -29,7 +29,10 @@ class FinderForm extends Component {
 
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value.toLowerCase() });
+    if ((this.state.emailAddress).length <= 1) {
+      this.setState({ showQ: false });
+    }
   }
 
   onClick = (e) => {
@@ -81,14 +84,13 @@ class FinderForm extends Component {
               name="emailAddress"
               value={emailAddress}
               type="email"
-              placeholder="Email address..."
+              placeholder="Email..."
               onChange={this.onChange}></input>
             <br />
             <button
               className="check-button"
               type="submit"
-              onClick={this.onClick}
-              value="Click it"></button>
+              onClick={this.onClick}>Go</button>
           </form>
           <Results showQ={this.state.showQ} index={this.state.index} pending={this.state.pending.length}/>
       </div>

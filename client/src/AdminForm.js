@@ -24,7 +24,7 @@ class AdminForm extends Component {
     axios.post("./api/admin", {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
-      emailAddress: this.state.emailAddress,
+      emailAddress: this.state.emailAddress.toLowerCase(),
       statusCode: this.state.statusCode,
       photo_url: this.state.photo_url,
       twitter_url: this.state.twitter_url

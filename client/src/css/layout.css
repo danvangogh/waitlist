@@ -26,7 +26,7 @@ button:focus {
     font-size: 6vw;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   h1 {
     font-size: 8rem;
   }
@@ -35,9 +35,10 @@ button:focus {
   }
 }
 .client-form {
-  padding: 1em;
+  padding: 2em;
   display: grid;
   height: 100vh;
+  overflow: hidden;
   background-color: #19D183;
   text-align: center;
   color: #f4f4f4;
@@ -62,27 +63,59 @@ button:focus {
   height: 2rem;
   text-align: center;
   background-color: #64ecb2;
-  color: #A779FF;
+  color: #0e764a;
 }
-.email:focus {
+.email:hover {
   width: 60vw;
   outline: 0px;
-  -webkit-transition: width 0.3s ease-out;
+  -webkit-transition: width 0.3s ease-in-out;
   -moz-transform: scale(0.5);
 }
 .email::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #c8acff;
+  color: #19D183;
 }
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #c8acff;
+  color: #19D183;
 }
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #c8acff;
+  color: #19D183;
 }
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #c8acff;
+  color: #19D183;
+}
+.email:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px #64ecb2 inset;
+  -webkit-text-fill-color: #0e764a;
+}
+.email:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px #64ecb2 inset;
+  -webkit-text-fill-color: #0e764a;
+}
+.check-button {
+  grid-area: b;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #c8acff;
+  border: 1px solid #c8acff;
+  border-radius: 2rem;
+  color: #f4f4f4;
+}
+.check-button:active {
+  background-color: #A779FF;
+}
+@media (min-width: 580px) {
+  .email {
+    width: 25vw;
+  }
+  .email:hover {
+    width: 25vw;
+  }
+  .title {
+    margin: 15vh auto 10vh auto;
+    width: 80%;
+  }
 }
