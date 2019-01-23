@@ -30,16 +30,17 @@
 }
 
 .email {
-  width: 25vw;
+  width: 30vw;
   border: none;
   // border-bottom: 1px solid #666;
   border-radius: 2rem;
-  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 3rem;
   text-align: center;
   background-color: lighten(@green, 20%);
   color: darken(@green, 20%);
   &:hover {
-    width: 60vw;
+    width: 85vw;
     outline: 0px;
     -webkit-transition: width .3s ease-in-out;
     -moz-transform: scale(.5);
@@ -83,9 +84,9 @@ color: @green;
 
 @media (min-width: 580px) {
   .email {
-    width: 25vw;
+    width: 40vw;
     &:hover {
-      width: 25vw;
+      width: 40vw;
     }
   }
   .title {
