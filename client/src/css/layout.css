@@ -7,14 +7,20 @@ body {
 }
 h1 {
   font-size: 14vw;
-  color: #f4f4f4;
-  font-family: 'Luckiest Guy', cursive;
-  letter-spacing: 0.15rem;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
 }
 h2 {
   font-size: 12vw;
-  color: #f4f4f4;
-  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+}
+h4 {
+  font-size: 2rem;
+}
+.result-text {
+  font-family: 'Archivo Black', sans-serif;
+  color: #122059;
 }
 button:focus {
   outline: 0;
@@ -22,7 +28,6 @@ button:focus {
 @media (min-width: 580px) {
   h1 {
     font-size: 8vw;
-    letter-spacing: 1rem;
   }
   h2 {
     font-size: 6vw;
@@ -37,23 +42,24 @@ button:focus {
   }
 }
 .client-form {
-  padding: 2em;
+  background: url("../images/bg.svg") no-repeat;
+  background-size: cover;
   display: grid;
   height: 100vh;
-  overflow: hidden;
-  background-color: #19D183;
+  overflow: auto;
   text-align: center;
-  color: #f4f4f4;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 2fr 1fr 1fr;
-  grid-template-areas: "a a a" "b b b" ". c .";
+  grid-template-areas: "a a a a a a . . . . . ." "b b b b b b b b b b b b" ". . . . . c c . . . . .";
 }
 .title {
   grid-area: a;
-  padding-top: 2rem;
+  text-align: left;
+  margin: 6rem 0 0 8rem;
 }
 .check-form {
   grid-area: b;
+  margin-top: 12rem;
 }
 .results {
   grid-area: c;
@@ -65,60 +71,58 @@ button:focus {
   font-size: 1.5rem;
   line-height: 3rem;
   text-align: center;
-  background-color: #64ecb2;
-  color: #0e764a;
+  background: #051875;
+  background: linear-gradient(321deg, rgba(5, 24, 117, 0.4) 0%, rgba(50, 253, 254, 0.4) 100%);
+  color: #2b6887;
 }
 .email:hover {
   width: 85vw;
   outline: 0px;
-  -webkit-transition: width 0.3s ease-in-out;
+  -webkit-transition: width 0.3s ease-in;
   -moz-transform: scale(0.5);
+  -webkit-transition: width 0.3s ease-out;
 }
 .email::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #19D183;
+  color: #519fc7;
 }
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #19D183;
+  color: #519fc7;
 }
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #19D183;
+  color: #519fc7;
 }
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #19D183;
+  color: #519fc7;
 }
 .email:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 50px #64ecb2 inset;
-  -webkit-text-fill-color: #0e764a;
+  -webkit-box-shadow: 0 0 0 50px #9ecae0 inset;
+  -webkit-text-fill-color: #2b6887;
 }
 .email:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 50px #64ecb2 inset;
-  -webkit-text-fill-color: #0e764a;
+  -webkit-box-shadow: 0 0 0 50px #9ecae0 inset;
+  -webkit-text-fill-color: #2b6887;
 }
 .check-button {
   grid-area: b;
   margin-top: 1.5rem;
   padding: 1rem;
-  background-color: #c8acff;
-  border: 1px solid #c8acff;
+  background-color: #65fdfd;
+  border: 1px solid #65fdfd;
   border-radius: 2rem;
-  color: #f4f4f4;
+  color: white;
 }
 .check-button:active {
-  background-color: #A779FF;
+  background-color: #32fcfd;
 }
 @media (min-width: 580px) {
   .email {
-    width: 40vw;
+    width: 20vw;
   }
   .email:hover {
     width: 40vw;
-  }
-  .title {
-    margin: 15vh auto 10vh auto;
-    width: 80%;
   }
 }

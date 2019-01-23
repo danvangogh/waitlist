@@ -81,7 +81,7 @@ class FinderForm extends Component {
 
     return(
       <div className="App client-form">
-        <h1 className="title">Enter your email to see your position in the queue</h1>
+        <h2 className="title">Enter your email to see your position in the queue</h2>
           <form className="check-form">
             <input
               className="email"

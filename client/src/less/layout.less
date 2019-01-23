@@ -1,28 +1,29 @@
 @import 'styles.less';
 
 .client-form {
-  padding: 2em;
+  background: url("../images/bg.svg") no-repeat;
+  background-size: cover;
   display: grid;
   height: 100vh;
-  overflow: hidden;
-  background-color: @green;
+  overflow: auto;
   text-align: center;
-  color: @white;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 2fr 1fr 1fr;
   grid-template-areas:
-  "a a a"
-  "b b b"
-  ". c ."
+  "a a a a a a . . . . . ."
+  "b b b b b b b b b b b b"
+  ". . . . . c c . . . . ."
 }
 
 .title {
   grid-area: a;
-  padding-top: 2rem;
+  text-align: left;
+  margin: 6rem 0 0 8rem;
 }
 
 .check-form {
   grid-area: b;
+  margin-top: 12rem;
 }
 
 .results {
@@ -37,13 +38,16 @@
   font-size: 1.5rem;
   line-height: 3rem;
   text-align: center;
-  background-color: lighten(@green, 20%);
+  background: rgb(5,24,117);
+  background: linear-gradient(321deg, rgba(5,24,117,0.4) 0%, rgba(50,253,254,0.4) 100%);
+  // background-color: lighten(@green, 20%);
   color: darken(@green, 20%);
   &:hover {
     width: 85vw;
     outline: 0px;
-    -webkit-transition: width .3s ease-in-out;
+    -webkit-transition: width .3s ease-in;
     -moz-transform: scale(.5);
+    -webkit-transition: width .3s ease-out;
   }
 }
 
@@ -84,13 +88,9 @@ color: @green;
 
 @media (min-width: 580px) {
   .email {
-    width: 40vw;
+    width: 20vw;
     &:hover {
       width: 40vw;
     }
-  }
-  .title {
-    margin: 15vh auto 10vh auto;
-    width: 80%;
   }
 }
