@@ -1,10 +1,12 @@
 @green: #519fc7;
-@font-family: 'Archivo Black', sans-serif;
+@font-family: 'Work Sans', sans-serif;
 @white: white;
-@purple: #32fcfd;
+@purple: #0F4B93;
+@dark: #777;
+@logo: 'Niconne', cursive;
 
 html {
-  font-size: 12px;
+  font-size: 8px;
 }
 
 body {
@@ -13,18 +15,31 @@ body {
 }
 
 h1 {
-  font-size: 14vw;
+  font-size: 3rem;
   color: @white;
   font-family: @font-family;
 }
 h2 {
-  font-size: 12vw;
+  font-size: 2.8rem;
   color: @white;
   font-family: @font-family;
+  font-weight: 300;
+}
+h3 {
+  font-size: 1.6rem;
+  color: @white;
+  font-family: @font-family;
+  font-weight: 300;
+}
+h4 {
+  font-size: 1.4rem;
+  font-family: @font-family;
+  color: @white;
+  font-weight: 100;
 }
 
-h4 {
-  font-size: 2rem;
+.email {
+  text-decoration: underline;
 }
 
 .result-text {
@@ -34,23 +49,4 @@ h4 {
 
 button:focus {
   outline: 0;
-}
-
-@media (min-width: 580px) {
-  h1 {
-    font-size: 8vw;
-  }
-  h2 {
-    font-size: 6vw;
-  }
-}
-
-@media (min-width: 1000px) {
-  h1 {
-    font-size: 8rem;
-    ;
-  }
-  h2 {
-    font-size: 6rem;
-  }
 }

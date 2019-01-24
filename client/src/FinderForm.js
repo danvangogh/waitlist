@@ -80,21 +80,25 @@ class FinderForm extends Component {
     const { emailAddress } = this.state;
 
     return(
-      <div className="App client-form">
+      <div className="client-form">
+      <span className="logo-text">Waitlist</span>
+      <h4 className="waitlist-name">Claytek Pottery Studios</h4>
         <h2 className="title">Enter your email to see your position in the queue</h2>
           <form className="check-form">
-            <input
-              className="email"
-              name="emailAddress"
-              value={emailAddress}
-              type="email"
-              placeholder="Email..."
-              onChange={this.onChange}></input>
-            <br />
-            <button
-              className="check-button"
-              type="submit"
-              onClick={this.onClick}>Go</button>
+            <div className="email-input">
+              <input
+                className="email"
+                name="emailAddress"
+                value={emailAddress}
+                type="email"
+                placeholder="Email..."
+                onChange={this.onChange}></input>
+              <br />
+              <button
+                className="check-button"
+                type="submit"
+                onClick={this.onClick}>Go</button>
+              </div>
           </form>
           <Results showQ={this.state.showQ} index={this.state.index} pending={this.state.pending.length} name={this.state.name}/>
       </div>
