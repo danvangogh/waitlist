@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Results from './Results.js'
-import axios from 'axios'
+import Results from './Results.js';
+import axios from 'axios';
+
 
 class FinderForm extends Component {
   constructor(props) {
@@ -12,10 +13,12 @@ class FinderForm extends Component {
       index: 0,
       pending: [],
       name: "",
+      focus: "Email...",
     };
   }
 
   componentDidMount() {
+    const TweenMax = window.TweenMax;
     axios.get('./api/customers')
       .then((response) => {
         this.setState({
@@ -25,7 +28,7 @@ class FinderForm extends Component {
       .catch(function (error) {
         console.log(error);
       });
-      console.log(this.state.customers)
+      TweenMax.from('.check-button', 1, {opacity:0});
     }
 
   onChange = (e) => {
@@ -39,8 +42,13 @@ class FinderForm extends Component {
     e.preventDefault();
     if ((this.state.emailAddress).length > 0) {
       this.sorter(this.state.customers);
-      this.setState({ emailAddress: '' });
+      console.log("gotit");
+      this.setState({ emailAddress: '', focus: "Email..."});
     }
+  }
+
+  onFocus = (e) => {
+    e.target.placeholder = "";
   }
 
   sorter = (arr) => {
@@ -77,7 +85,7 @@ class FinderForm extends Component {
 
   render() {
 
-    const { emailAddress } = this.state;
+    const { emailAddress, focus } = this.state;
 
     return(
       <div className="App client-form">
@@ -88,7 +96,8 @@ class FinderForm extends Component {
               name="emailAddress"
               value={emailAddress}
               type="email"
-              placeholder="Email..."
+              placeholder={focus}
+              onFocus={this.onFocus}
               onChange={this.onChange}></input>
             <br />
             <button
@@ -97,6 +106,7 @@ class FinderForm extends Component {
               onClick={this.onClick}>Go</button>
           </form>
           <Results showQ={this.state.showQ} index={this.state.index} pending={this.state.pending.length} name={this.state.name}/>
+
       </div>
     )
   }

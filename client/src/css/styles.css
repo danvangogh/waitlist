@@ -7,13 +7,20 @@ body {
 }
 h1 {
   font-size: 14vw;
-  color: #f4f4f4;
-  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
 }
 h2 {
   font-size: 12vw;
-  color: #f4f4f4;
-  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+}
+h4 {
+  font-size: 2rem;
+}
+.result-text {
+  font-family: 'Archivo Black', sans-serif;
+  color: #122059;
 }
 button:focus {
   outline: 0;
@@ -26,7 +33,7 @@ button:focus {
     font-size: 6vw;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   h1 {
     font-size: 8rem;
   }

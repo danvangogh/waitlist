@@ -42,15 +42,16 @@ button:focus {
   }
 }
 .client-form {
-  background: url("../images/bg.svg") no-repeat;
+  background: url("../images/bg.svg") no-repeat center center;
   background-size: cover;
   display: grid;
-  height: 100vh;
+  width: 100vw;
+  height: auto;
   overflow: auto;
   text-align: center;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 2fr 1fr 1fr;
-  grid-template-areas: "a a a a a a . . . . . ." "b b b b b b b b b b b b" ". . . . . c c . . . . .";
+  grid-template-areas: "a a a a a a . . . . . ." "b b b b b b b b b b b b" ". . . . c c c c . . . .";
 }
 .title {
   grid-area: a;
@@ -120,9 +121,9 @@ button:focus {
 }
 @media (min-width: 580px) {
   .email {
-    width: 20vw;
+    width: 30vw;
   }
   .email:hover {
-    width: 40vw;
+    width: 30vw;
   }
 }
