@@ -7,6 +7,16 @@ class Waitlist extends Component {
     super(props)
   }
 
+  codeSwitch = (code) => {
+    let status = '';
+    switch (code) {
+      case 0: return "Waiting";
+      case 1: return "Contacted";
+      case 2: return "Confirmed: Yes";
+      case 3: return "Confirmed: No";
+    }
+  }
+
   render() {
 
     const { customers } = this.props;
@@ -16,7 +26,7 @@ class Waitlist extends Component {
       <li key={customer.id}>{customer.firstName} {customer.lastName.charAt(0)}.</li>
     );
     const listStatus = customerByDate.map((customer) =>
-      <li key={customer.id}>{customer.statusCode}</li>
+      <li key={customer.id}>{this.codeSwitch(customer.statusCode)}</li>
     );
     const listDate = customerByDate.map((customer) =>
       <li key={customer.id}>{ (new Date(customer.created_at)).toLocaleDateString() }</li>

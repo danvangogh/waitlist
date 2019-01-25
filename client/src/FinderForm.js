@@ -55,7 +55,7 @@ class FinderForm extends Component {
     let fName = "";
 
     arr.forEach(function(customer, index) {
-      if (customer.statusCode !== "Waiting") {
+      if (customer.statusCode !== 0) {
         confirmedEntries.push(customer)
       } else {
         pendingEntries.push(customer)
