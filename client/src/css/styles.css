@@ -1,36 +1,57 @@
 html {
-  font-size: 12px;
+  font-size: 8px;
 }
 body {
   margin: 0px;
   padding: 0px;
 }
 h1 {
-  font-size: 14vw;
-  color: #f4f4f4;
-  font-family: 'Luckiest Guy', cursive;
+  font-size: 3rem;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
 }
 h2 {
-  font-size: 12vw;
-  color: #f4f4f4;
-  font-family: 'Luckiest Guy', cursive;
+  font-size: 2.8rem;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+}
+h3 {
+  font-size: 1.6rem;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+}
+h4 {
+  font-size: 1.4rem;
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+  font-weight: 100;
+}
+.background {
+  background: url("../images/mobile_bg.svg") no-repeat;
+  background-size: cover;
+  display: grid;
+  height: 100vh;
+  overflow: auto;
+}
+.email {
+  text-decoration: underline;
+}
+.result-text {
+  font-family: 'Work Sans', sans-serif;
+  color: #122059;
 }
 button:focus {
   outline: 0;
 }
-@media (min-width: 580px) {
-  h1 {
-    font-size: 8vw;
-  }
-  h2 {
-    font-size: 6vw;
-  }
+ul {
+  list-style: none;
+  padding: 0;
 }
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 8rem;
-  }
-  h2 {
-    font-size: 6rem;
-  }
+li {
+  color: #aaaaaa;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 1rem;
+  font-size: 1.6rem;
 }

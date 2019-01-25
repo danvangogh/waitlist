@@ -73,7 +73,8 @@ li {
 .nav {
   grid-area: m;
 }
-.waitlist-name {
+.waitlist-name,
+.see-more {
   grid-area: b;
   text-align: center;
   text-transform: uppercase;
@@ -131,7 +132,10 @@ li {
 .admin-layout {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
+  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . f f f f . . . .";
+}
+.see-more {
+  grid-area: f;
 }
 .admin-form {
   grid-area: e;

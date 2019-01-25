@@ -21,6 +21,7 @@ class Admin extends Component {
       <h4 className="waitlist-name">Claytek Pottery Studios</h4>
       <h2 className="title">Add a waiter to the waitlist</h2>
         <AdminForm />
+        <span className="see-more">see the waitlist</span>
       </div>
 
     )
