@@ -8,8 +8,8 @@ class AdminForm extends Component {
       firstName: '',
       lastName: '',
       emailAddress: '',
+      phoneNumber: '',
       statusCode: 0,
-
     };
   }
 
@@ -19,12 +19,11 @@ class AdminForm extends Component {
   }
 
   onSubmit = (e) => {
-    e.preventDefault();
-
     axios.post("./api/admin", {
       firstName: this.state.firstName.trim(),
       lastName: this.state.lastName.trim(),
       emailAddress: this.state.emailAddress.toLowerCase().trim(),
+      phoneNumber: this.state.phoneNumber.trim().replace(/\D/g,''),
       statusCode: this.state.statusCode,
     })
     .then(function (response) {
