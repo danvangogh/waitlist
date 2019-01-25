@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import AdminForm from './AdminForm';
 import Waitlist from './Waitlist';
-
+import AdminLogin from './AdminLogin';
 
 class Admin extends Component {
   state = {
@@ -36,7 +36,7 @@ class Admin extends Component {
         </ul>
         <h4 className="waitlist-name">Claytek Pottery Studios</h4>
         <h2 className="title">Add a waiter to the waitlist</h2>
-          <AdminForm customers={this.state.customers}/>
+          <AdminLogin customers={this.state.customers}/>
           <div className="see-more">
             see the waitlist <br />
             <i className="down-arrow"></i>
