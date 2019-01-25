@@ -28,6 +28,15 @@ h4 {
   color: white;
   font-weight: 100;
 }
+.background,
+.app,
+.admin-layout {
+  background: url("../images/mobile_bg.svg") no-repeat;
+  background-size: cover;
+  display: grid;
+  height: 100vh;
+  overflow: auto;
+}
 .email {
   text-decoration: underline;
 }
@@ -48,12 +57,7 @@ li {
   margin-top: 1rem;
   font-size: 1.6rem;
 }
-.client-form {
-  background: url("../images/mobile_bg.svg") no-repeat;
-  background-size: cover;
-  display: grid;
-  height: 100vh;
-  overflow: auto;
+.app {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
@@ -81,7 +85,8 @@ li {
 .results {
   grid-area: r;
 }
-.check-form {
+.check-form,
+.admin-form {
   grid-area: e;
   background-color: white;
   border-radius: 3rem 0;
@@ -105,7 +110,8 @@ li {
   border: none;
   border-bottom: 1px #777 solid;
 }
-.check-button {
+.check-button,
+.add-button {
   grid-area: cfb;
   background-color: #1463c1;
   border: 1px solid #1463c1;
@@ -122,33 +128,41 @@ li {
 .check-button:active {
   background-color: #0F4B93;
 }
-/*
-.client-form {
-
-  text-align: center;
+.admin-layout {
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 2fr 1fr 1fr;
-  grid-template-areas:
-  "a a a a a a . . . . . ."
-  "b b b b b b b b b b b b"
-  ". . . . . c c . . . . ."
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
 }
-
-.title {
-  grid-area: a;
-  text-align: left;
-  margin: 6rem 0 0 8rem;
+.admin-form {
+  grid-area: e;
+  display: grid;
+  grid-template-areas: "afa" "afd" "afc" "afb" "afe" "aff";
 }
-
-.check-form {
-  grid-area: b;
-  margin-top: 12rem;
+.form-group-a {
+  grid-area: afa;
+  margin: 1rem;
 }
-
-.results {
-  grid-area: c;
+.form-group-b {
+  grid-area: afb;
+  margin: 1rem;
 }
-
+.form-group-c {
+  grid-area: afc;
+  margin: 1rem;
+}
+.form-group-d {
+  grid-area: afd;
+  margin: 1rem;
+}
+.form-group-e {
+  grid-area: afe;
+  margin: 1rem;
+}
+.form-group-f {
+  grid-area: afe;
+  margin: 1rem;
+}
+/*
 .email {
   width: 30vw;
   border: none;

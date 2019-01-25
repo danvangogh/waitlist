@@ -10,6 +10,7 @@ class AdminForm extends Component {
       lastName: '',
       emailAddress: '',
       statusCode: 0,
+
     };
   }
 
@@ -38,52 +39,49 @@ class AdminForm extends Component {
 
 
   render() {
-    const { firstName, lastName, emailAddress, statusCode } = this.state;
+    const { firstName, lastName, emailAddress, phoneNumber, statusCode } = this.state;
     return(
-      <form onSubmit={this.onSubmit} className="App">
-        <h4 className="admin add-topic">Add a Waiter</h4>
-        <div className="form-group">
-          <label>First Name</label>
-          <input
-            type="text"
-            className="form-control"
-            name="firstName"
-            value={firstName}
-            onChange={this.onChange}/>
-        </div>
-        <div className="form-group">
-          <label>Last Name</label>
-          <input
-            type="text"
-            className="form-control"
-            name="lastName"
-            value={lastName}
-            onChange={this.onChange}/>
-        </div>
-        <div className="form-group">
-          <label>Email Address</label>
-          <input
-            type="text"
-            className="form-control"
-            name="emailAddress"
-            value={emailAddress}
-            onChange={this.onChange}/>
-        </div>
-        <div className="form-group">
-          <label>Status Code</label>
-          <select
-            name="statusCode"
-            value={statusCode}
-            onChange={this.onChange}>
-            <option value="0">Waiting</option>
-            <option value="1">Called/Left Message</option>
-            <option value="2">Sent Email</option>
-            <option value="3">Confirmed No</option>
-            <option value="4">Confirmed Yes</option>
-          </select>
-        </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+      <div className="admin-form">
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group-a">
+            <input
+              type="text"
+              className="email"
+              name="firstName"
+              value={firstName}
+              placeholder="First Name"
+              onChange={this.onChange}/>
+          </div>
+          <div className="form-group-b">
+            <input
+              type="text"
+              className="email"
+              name="lastName"
+              value={lastName}
+              placeholder="Last Name"
+              onChange={this.onChange}/>
+          </div>
+          <div className="form-group-c">
+            <input
+              type="text"
+              className="email"
+              name="emailAddress"
+              placeholder="Email"
+              value={emailAddress}
+              onChange={this.onChange}/>
+          </div>
+          <div className="form-group-d">
+            <input
+              type="text"
+              className="email"
+              name="phoneNumber"
+              placeholder="Phone Number"
+              value={phoneNumber}
+              onChange={this.onChange}/>
+          </div>
+          <button type="submit" className="add-button form-group-f">Add</button>
+        </form>
+      </div>
     )
   }
 }

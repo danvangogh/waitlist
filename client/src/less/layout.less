@@ -1,11 +1,6 @@
 @import 'styles.less';
 
-.client-form {
-  background: url("../images/mobile_bg.svg") no-repeat;
-  background-size: cover;
-  display: grid;
-  height: 100vh;
-  overflow: auto;
+.app:extend(.background){
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-template-areas:
@@ -98,33 +93,65 @@
   box-shadow: -1px -1px 10px 0px rgba(0,0,0,0.2);
 }
 
-/*
-.client-form {
-
-  text-align: center;
+.admin-layout:extend(.background) {
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: repeat(12, 1fr);
   grid-template-areas:
-  "a a a a a a . . . . . ."
-  "b b b b b b b b b b b b"
-  ". . . . . c c . . . . ."
+  ". l l l . . . . m m . ."
+  ". b b b b b b . m m . ."
+  ". c c c c c c . . . . ."
+  ". c c c c c c . . . . ."
+  ". e e e e e e e e e e ."
+  ". e e e e e e e e e e ."
+  ". e e e e e e e e e e ."
+  ". e e e e e e e e e e ."
+  ". e e e e e e e e e e ."
+  ". e e e e e e e e e e ."
+  ". e e e e e e e e e e ."
+  ". . . . . . . . . . . ."
 }
 
-.title {
-  grid-area: a;
-  text-align: left;
-  margin: 6rem 0 0 8rem;
+.admin-form:extend(.check-form){
+  grid-area: e;
+  display: grid;
+  grid-template-areas:
+  "afa"
+  "afd"
+  "afc"
+  "afb"
+  "afe"
+  "aff"
 }
 
-.check-form {
-  grid-area: b;
-  margin-top: 12rem;
+.form-group-a {
+  grid-area: afa;
+  margin: 1rem;
+}
+.form-group-b {
+  grid-area: afb;
+  margin: 1rem;
+}
+.form-group-c {
+  grid-area: afc;
+  margin: 1rem;
+}
+.form-group-d {
+  grid-area: afd;
+  margin: 1rem;
+}
+.form-group-e {
+  grid-area: afe;
+  margin: 1rem;
+}
+.form-group-f {
+  grid-area: afe;
+  margin: 1rem;
 }
 
-.results {
-  grid-area: c;
+.add-button:extend(.check-button) {
 }
 
+/*
 .email {
   width: 30vw;
   border: none;

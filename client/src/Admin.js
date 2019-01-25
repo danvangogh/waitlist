@@ -11,8 +11,15 @@ class Admin extends Component {
   };
   render() {
     return(
-      <div>
-        <h2>this is admin</h2>
+      <div className="admin-layout">
+      <span className="logo-text">Waitlist</span>
+      <ul className="nav">
+        <li>Home</li>
+        <li>Admin</li>
+        <li>Contact</li>
+      </ul>
+      <h4 className="waitlist-name">Claytek Pottery Studios</h4>
+      <h2 className="title">Add a waiter to the waitlist</h2>
         <AdminForm />
       </div>
 

@@ -80,7 +80,7 @@ class FinderForm extends Component {
     const { emailAddress } = this.state;
 
     return(
-      <div className="client-form">
+      <div className="app">
       <span className="logo-text">Waitlist</span>
       <ul className="nav">
         <li>Home</li>
