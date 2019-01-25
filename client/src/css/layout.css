@@ -38,6 +38,16 @@ h4 {
 button:focus {
   outline: 0;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  color: #aaaaaa;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
 .client-form {
   background: url("../images/mobile_bg.svg") no-repeat;
   background-size: cover;
@@ -46,7 +56,7 @@ button:focus {
   overflow: auto;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b . . . . . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
+  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
 }
 .logo-text {
   grid-area: l;
@@ -56,10 +66,12 @@ button:focus {
   color: #777;
   font-size: 6rem;
 }
+.nav {
+  grid-area: m;
+}
 .waitlist-name {
   grid-area: b;
   text-align: center;
-  padding-top: 1rem;
   text-transform: uppercase;
 }
 .title {
@@ -75,8 +87,8 @@ button:focus {
   border-radius: 3rem 0;
   display: grid;
   text-align: center;
-  margin: 8% 4%;
-  padding: 3rem 0 0 0;
+  margin: 6% 2%;
+  padding: 3rem 0;
   -webkit-box-shadow: 10px 10px 15px -11px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 10px 10px 15px -11px rgba(0, 0, 0, 0.7);
   box-shadow: 10px 10px 15px -11px rgba(0, 0, 0, 0.7);

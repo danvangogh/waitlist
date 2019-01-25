@@ -82,6 +82,11 @@ class FinderForm extends Component {
     return(
       <div className="client-form">
       <span className="logo-text">Waitlist</span>
+      <ul className="nav">
+        <li>Home</li>
+        <li>Admin</li>
+        <li>Contact</li>
+      </ul>
       <h4 className="waitlist-name">Claytek Pottery Studios</h4>
         <h2 className="title">Enter your email to see your position in the queue</h2>
           <form className="check-form">
