@@ -110,9 +110,6 @@
   ". e e e e e e e e e e ."
   ". . . . f f f f . . . ."
 }
-.see-more:extend(.waitlist-name){
-  grid-area: f;
-}
 
 .admin-form:extend(.check-form){
   grid-area: e;
@@ -154,8 +151,39 @@
 .add-button:extend(.check-button) {
 }
 
+.see-more {
+  grid-area: f;
+  font-family: @font-family;
+  text-align: center;
+  color: @white;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
 
+.list-container {
+  display: grid;
+  height: 1vh;
+  padding: 0 4em;
+  margin: auto;
+  background-color: #f3f3f3;
+  grid-template-areas: "b a c";
+}
 
+.waitlist {
+background-color: #f3f3f3;
+}
+
+.name {
+
+}
+
+.status {
+
+}
+
+.date {
+
+}
 /*
 .email {
   width: 30vw;

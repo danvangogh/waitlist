@@ -57,6 +57,14 @@ li {
   margin-top: 1rem;
   font-size: 1.6rem;
 }
+.down-arrow {
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 .app {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
@@ -73,8 +81,7 @@ li {
 .nav {
   grid-area: m;
 }
-.waitlist-name,
-.see-more {
+.waitlist-name {
   grid-area: b;
   text-align: center;
   text-transform: uppercase;
@@ -134,9 +141,6 @@ li {
   grid-template-rows: repeat(12, 1fr);
   grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . f f f f . . . .";
 }
-.see-more {
-  grid-area: f;
-}
 .admin-form {
   grid-area: e;
   display: grid;
@@ -165,6 +169,25 @@ li {
 .form-group-f {
   grid-area: afe;
   margin: 1rem;
+}
+.see-more {
+  grid-area: f;
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.list-container {
+  display: grid;
+  height: 1vh;
+  padding: 0 4em;
+  margin: auto;
+  background-color: #f3f3f3;
+  grid-template-areas: "b a c";
+}
+.waitlist {
+  background-color: #f3f3f3;
 }
 /*
 .email {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import AdminForm from './AdminForm';
+import Waitlist from './Waitlist';
 
 class Admin extends Component {
   constructor(props) {
@@ -11,19 +12,24 @@ class Admin extends Component {
   };
   render() {
     return(
-      <div className="admin-layout">
-      <span className="logo-text">Waitlist</span>
-      <ul className="nav">
-        <li>Home</li>
-        <li>Admin</li>
-        <li>Contact</li>
-      </ul>
-      <h4 className="waitlist-name">Claytek Pottery Studios</h4>
-      <h2 className="title">Add a waiter to the waitlist</h2>
-        <AdminForm />
-        <span className="see-more">see the waitlist</span>
+      <div>
+        <div className="admin-layout">
+        <span className="logo-text">Waitlist</span>
+        <ul className="nav">
+          <li>Home</li>
+          <li>Admin</li>
+          <li>Contact</li>
+        </ul>
+        <h4 className="waitlist-name">Claytek Pottery Studios</h4>
+        <h2 className="title">Add a waiter to the waitlist</h2>
+          <AdminForm />
+          <div className="see-more">
+            see the waitlist <br />
+            <i className="down-arrow"></i>
+            </div>
+        </div>
+      <Waitlist />
       </div>
-
     )
   }
 }
