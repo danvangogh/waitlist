@@ -111,16 +111,18 @@
   ". . . . f f f f . . . ."
 }
 
-.admin-form:extend(.check-form){
+.admin-form-container {
   grid-area: e;
+}
+
+.admin-form:extend(.check-form){
   display: grid;
   grid-template-areas:
   "afa"
-  "afd"
-  "afc"
   "afb"
+  "afc"
+  "afd"
   "afe"
-  "aff"
 }
 
 .form-group-a {
@@ -141,14 +143,11 @@
 }
 .form-group-e {
   grid-area: afe;
-  margin: 1rem;
-}
-.form-group-f {
-  grid-area: afe;
-  margin: 1rem;
+  margin: auto;
 }
 
 .add-button:extend(.check-button) {
+  margin-top: 1rem;
 }
 
 .see-more {
@@ -156,7 +155,7 @@
   font-family: @font-family;
   text-align: center;
   color: @white;
-  margin-top: 1rem;
+  margin-top: 2rem;
   font-size: 1.2rem;
 }
 

@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path='/' exact component={FinderForm} />
           <Route path='/admin' component={Admin} />
+          <Route path='/*' component={FinderForm} />
         </Switch>
       </Router>
     );

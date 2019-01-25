@@ -9,7 +9,7 @@ class AdminForm extends Component {
       lastName: '',
       emailAddress: '',
       phoneNumber: '',
-      statusCode: 0,
+      statusCode: "Waiting",
     };
   }
 
@@ -39,8 +39,8 @@ class AdminForm extends Component {
   render() {
     const { firstName, lastName, emailAddress, phoneNumber, statusCode } = this.state;
     return(
-      <div className="admin-form">
-        <form onSubmit={this.onSubmit}>
+      <div className="admin-form-container">
+        <form onSubmit={this.onSubmit} className="admin-form">
           <div className="form-group-a">
             <input
               type="text"
@@ -77,7 +77,7 @@ class AdminForm extends Component {
               value={phoneNumber}
               onChange={this.onChange}/>
           </div>
-          <button type="submit" className="add-button form-group-f">Add</button>
+          <button type="submit" className="add-button form-group-e">Add</button>
         </form>
       </div>
     )

@@ -5,6 +5,11 @@ body {
   margin: 0px;
   padding: 0px;
 }
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+}
 h1 {
   font-size: 3rem;
   color: white;
@@ -141,10 +146,12 @@ li {
   grid-template-rows: repeat(12, 1fr);
   grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . f f f f . . . .";
 }
-.admin-form {
+.admin-form-container {
   grid-area: e;
+}
+.admin-form {
   display: grid;
-  grid-template-areas: "afa" "afd" "afc" "afb" "afe" "aff";
+  grid-template-areas: "afa" "afb" "afc" "afd" "afe";
 }
 .form-group-a {
   grid-area: afa;
@@ -164,18 +171,17 @@ li {
 }
 .form-group-e {
   grid-area: afe;
-  margin: 1rem;
+  margin: auto;
 }
-.form-group-f {
-  grid-area: afe;
-  margin: 1rem;
+.add-button {
+  margin-top: 1rem;
 }
 .see-more {
   grid-area: f;
   font-family: 'Work Sans', sans-serif;
   text-align: center;
   color: white;
-  margin-top: 1rem;
+  margin-top: 2rem;
   font-size: 1.2rem;
 }
 .list-container {
