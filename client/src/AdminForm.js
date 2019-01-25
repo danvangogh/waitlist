@@ -9,20 +9,25 @@ class AdminForm extends Component {
       lastName: '',
       emailAddress: '',
       phoneNumber: '',
-      statusCode: "Waiting",
+      statusCode: 'Waiting',
+      alert: '',
     };
   }
 
   emailcheck(userEmail) {
-    for (let email in userEmail) {
-
+    let { customers } = this.props;
+    for (let cust in customers) {
+      if (userEmail == customers[cust].emailAddress) {
+        this.setState({
+          alert: 'Email already taken'
+        });
+      }
     }
   }
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
     this.emailcheck(this.state.emailAddress)
-    console.log(this.state);
   }
 
   onSubmit = (e) => {
@@ -47,7 +52,7 @@ class AdminForm extends Component {
 
 
   render() {
-    const { firstName, lastName, emailAddress, phoneNumber, statusCode } = this.state;
+    const { firstName, lastName, emailAddress, phoneNumber, statusCode, alert } = this.state;
     return(
       <div className="admin-form-container">
         <form onSubmit={this.onSubmit} className="admin-form">
@@ -87,6 +92,7 @@ class AdminForm extends Component {
               value={phoneNumber}
               onChange={this.onChange}/>
           </div>
+          <span className="email-alert">{alert}</span>
           <button type="submit" className="add-button form-group-e">Add</button>
         </form>
       </div>

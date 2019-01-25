@@ -185,6 +185,13 @@ li,
   margin-top: 2rem;
   font-size: 1.2rem;
 }
+.email-alert {
+  grid-area: afe;
+  font-family: 'Work Sans', sans-serif;
+  margin: 2rem 0 2rem 6rem;
+  text-align: left;
+  color: red;
+}
 .list-container {
   display: grid;
   width: 95vw;

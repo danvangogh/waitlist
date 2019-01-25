@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import AdminForm from './AdminForm';
 import Waitlist from './Waitlist';
 
+
 class Admin extends Component {
-  constructor(props) {
-    super(props)
-  }
   state = {
-    topics: [],
+    customers: [],
   };
+
+  componentDidMount() {
+    const { customers } = this.state;
+    axios.get('./api/customers')
+      .then((response) => {
+        this.setState({
+          customers: response.data
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      console.log(this.state.customers)
+    }
+
   render() {
     return(
       <div>
@@ -22,13 +36,13 @@ class Admin extends Component {
         </ul>
         <h4 className="waitlist-name">Claytek Pottery Studios</h4>
         <h2 className="title">Add a waiter to the waitlist</h2>
-          <AdminForm />
+          <AdminForm customers={this.state.customers}/>
           <div className="see-more">
             see the waitlist <br />
             <i className="down-arrow"></i>
             </div>
         </div>
-      <Waitlist />
+      <Waitlist customers={this.state.customers}/>
       </div>
     )
   }

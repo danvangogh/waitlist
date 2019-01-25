@@ -5,28 +5,11 @@ import Moment from 'react-moment';
 class Waitlist extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      customers: [],
-    }
   }
-
-  componentDidMount() {
-    const { customers } = this.state;
-    axios.get('./api/customers')
-      .then((response) => {
-        this.setState({
-          customers: response.data
-        })
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-      console.log(this.state.customers)
-    }
 
   render() {
 
-    const { customers } = this.state;
+    const { customers } = this.props;
     const customerByDate = customers.reverse();
 
     const listNames = customerByDate.map((customer) =>
