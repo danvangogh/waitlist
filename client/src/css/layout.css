@@ -186,9 +186,6 @@ li {
   background-color: #f3f3f3;
   grid-template-areas: "b a c";
 }
-.waitlist {
-  background-color: #f3f3f3;
-}
 /*
 .email {
   width: 30vw;

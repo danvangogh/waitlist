@@ -27,14 +27,15 @@ class Waitlist extends Component {
   render() {
 
     const { customers } = this.state;
+    const customerByDate = customers.reverse();
 
-    const listNames = customers.map((customer) =>
+    const listNames = customerByDate.map((customer) =>
       <li key={customer.id}>{customer.firstName} {customer.lastName}</li>
     );
-    const listStatus = customers.map((customer) =>
+    const listStatus = customerByDate.map((customer) =>
       <li key={customer.id}>{customer.statusCode}</li>
     );
-    const listDate = customers.map((customer) =>
+    const listDate = customerByDate.map((customer) =>
       <li key={customer.id}>{ (new Date(customer.created_at)).toLocaleDateString() }</li>
     );
 
