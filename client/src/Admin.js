@@ -30,9 +30,9 @@ class Admin extends Component {
         <div className="admin-layout">
         <span className="logo-text">Waitlist</span>
         <ul className="nav">
-          <li>Home</li>
-          <li>Admin</li>
-          <li>Contact</li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="mailto:danielredwhite@gmail.com">Contact</a></li>
         </ul>
         <h4 className="waitlist-name">Claytek Pottery Studios</h4>
         <h2 className="title">Add a waiter to the waitlist</h2>

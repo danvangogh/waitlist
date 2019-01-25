@@ -8,11 +8,11 @@ class FinderForm extends Component {
     super(props)
     this.state = {
       customers: [],
-      emailAddress: "",
+      emailAddress: '',
       showQ: false,
       index: 0,
       pending: [],
-      name: "",
+      name: '',
     };
   }
 
@@ -45,7 +45,6 @@ class FinderForm extends Component {
   }
 
   sorter = (arr) => {
-    console.log("arr: ", arr)
     const pendingEntries = [];
     const confirmedEntries = [];
     const address = this.state.emailAddress
@@ -56,7 +55,7 @@ class FinderForm extends Component {
     let fName = "";
 
     arr.forEach(function(customer, index) {
-      if (customer.statusCode !== 0) {
+      if (customer.statusCode !== "Waiting") {
         confirmedEntries.push(customer)
       } else {
         pendingEntries.push(customer)
