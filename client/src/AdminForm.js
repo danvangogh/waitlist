@@ -13,26 +13,36 @@ class AdminForm extends Component {
     };
   }
 
+  emailcheck(userEmail) {
+    for (let email in userEmail) {
+
+    }
+  }
+
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    this.emailcheck(this.state.emailAddress)
     console.log(this.state);
   }
 
   onSubmit = (e) => {
-    axios.post("./api/admin", {
-      firstName: this.state.firstName.trim(),
-      lastName: this.state.lastName.trim(),
-      emailAddress: this.state.emailAddress.toLowerCase().trim(),
-      phoneNumber: this.state.phoneNumber.trim().replace(/\D/g,''),
-      statusCode: this.state.statusCode,
-    })
-    .then(function (response) {
-      console.log(response.data);
+    const { firstName, lastName, emailAddress, phoneNumber, statusCode } = this.state;
+    if (firstName && lastName && emailAddress && phoneNumber && statusCode) {
 
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      axios.post("./api/admin", {
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+        emailAddress: emailAddress.toLowerCase().trim(),
+        phoneNumber: phoneNumber.trim().replace(/\D/g,''),
+        statusCode: statusCode,
+      })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
   }
 
 

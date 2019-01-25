@@ -161,11 +161,18 @@
 
 .list-container {
   display: grid;
-  height: 1vh;
-  padding: 0 4em;
+  width: 95vw;
+  padding-top: 4rem;
   margin: auto;
-  background-color: #f3f3f3;
-  grid-template-areas: "b a c";
+  grid-template-areas:
+  "n s d"
+  "b a c";
+}
+
+.list-header:extend(li) {
+  padding-bottom: .5rem;
+  border-bottom: 1px dashed @dark;
+  margin-bottom: 1rem;
 }
 
 .name {

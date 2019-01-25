@@ -30,7 +30,7 @@ class Waitlist extends Component {
     const customerByDate = customers.reverse();
 
     const listNames = customerByDate.map((customer) =>
-      <li key={customer.id}>{customer.firstName} {customer.lastName}</li>
+      <li key={customer.id}>{customer.firstName} {customer.lastName.charAt(0)}.</li>
     );
     const listStatus = customerByDate.map((customer) =>
       <li key={customer.id}>{customer.statusCode}</li>
@@ -41,11 +41,13 @@ class Waitlist extends Component {
 
     return(
       <div className="list-container">
-        <ul className="waitlist name">{listNames}</ul>
-        <ul className="waitlist status">{listStatus}</ul>
-        <ul className="waitlist date">{listDate}</ul>
+          <span className="list-header">Name</span>
+          <span className="list-header">Status</span>
+          <span className="list-header">Waiting Since</span>
+        <ul className="waitlist">{listNames}</ul>
+        <ul className="waitlist">{listStatus}</ul>
+        <ul className="waitlist">{listDate}</ul>
       </div>
-
     )
   }
 }

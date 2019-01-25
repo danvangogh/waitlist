@@ -56,7 +56,8 @@ ul {
   list-style: none;
   padding: 0;
 }
-li {
+li,
+.list-header {
   color: #aaaaaa;
   font-family: 'Work Sans', sans-serif;
   margin-top: 1rem;
@@ -186,11 +187,15 @@ li {
 }
 .list-container {
   display: grid;
-  height: 1vh;
-  padding: 0 4em;
+  width: 95vw;
+  padding-top: 4rem;
   margin: auto;
-  background-color: #f3f3f3;
-  grid-template-areas: "b a c";
+  grid-template-areas: "n s d" "b a c";
+}
+.list-header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #777;
+  margin-bottom: 1rem;
 }
 /*
 .email {
