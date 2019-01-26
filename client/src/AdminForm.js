@@ -9,7 +9,7 @@ class AdminForm extends Component {
       lastName: '',
       emailAddress: '',
       phoneNumber: '',
-      statusCode: 'Waiting',
+      statusCode: 0,
       alert: '',
     };
   }
@@ -31,9 +31,11 @@ class AdminForm extends Component {
   }
 
   onSubmit = (e) => {
+    e.preventDefault();
+    console.log("got to submit")
     const { firstName, lastName, emailAddress, phoneNumber, statusCode } = this.state;
-    if (firstName && lastName && emailAddress && phoneNumber && statusCode) {
-
+    if (firstName && lastName && emailAddress && phoneNumber) {
+      console.log("got to next")
       axios.post("./api/admin", {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
