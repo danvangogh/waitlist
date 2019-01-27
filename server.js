@@ -30,10 +30,9 @@ app.get("/api/admin", (req, res) => {
 });
 
 // GETS PENDING CUSTOMER
-app.get("/api/admin/:statusCode", (req, res) => {
+app.get("/api/admin/pending", (req, res) => {
   knex("customers")
-  .select()
-  .where({statusCode: req.params.statusCode})
+  .where('statusCode', '<', 3)
   .then((customers) => {
     res.status(200).json(customers);
   })
@@ -45,14 +44,25 @@ app.get("/api/admin/:statusCode", (req, res) => {
 // UPDATES CUSTOMER STATUSCODE
 app.patch("/api/admin/update", (req, res) => {
   const { id, newStatus } = req.body;
-  return knex("customers").where({id: id}).update({statusCode: newStatus})
-    .then(() => knex("customers").where({id: id + 1}).update({statusCode: 1}) )
-    .then((customers) => {
-      res.status(200).json(customers);
-    })
-    .catch((error) => {
-      res.status(500).json({ error });
-    });
+  if (newStatus >= 3) {
+    console.log("greater than 3")
+    return knex("customers").where({id: id}).update({statusCode: newStatus})
+      .then(() => knex("customers").where({id: id + 1}).update({statusCode: 1}))
+      .then((customers) => {
+        res.status(200).json(customers);
+      })
+      .catch((error) => {
+        res.status(500).json({ error });
+      });
+    } else {
+      knex("customers").where({id: id}).update({statusCode: newStatus})
+        .then((customers) => {
+          res.status(200).json(customers);
+        })
+        .catch((error) => {
+          res.status(500).json({ error });
+        });
+    }
   });
 
 app.post("/api/admin", (req, res) => {

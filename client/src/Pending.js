@@ -16,7 +16,7 @@ class Pending extends Component {
   }
 
   componentDidMount() {
-    axios.get('./api/admin/1')
+    axios.get("./api/admin/pending")
       .then((response) => {
         const res = response.data[0];
         this.setState({
