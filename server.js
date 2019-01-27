@@ -56,12 +56,12 @@ app.patch("/api/admin/update", (req, res) => {
       });
     } else {
       knex("customers").where({id: id}).update({statusCode: newStatus})
-        .then((customers) => {
-          res.status(200).json(customers);
-        })
-        .catch((error) => {
-          res.status(500).json({ error });
-        });
+      .then((customers) => {
+        res.status(200).json(customers);
+      })
+      .catch((error) => {
+        res.status(500).json({ error });
+      });
     }
   });
 
