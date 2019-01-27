@@ -6,13 +6,15 @@ const port = 5000;
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
-const database = require('knex')(configuration);
+const knex = require('knex')(configuration);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// GETS CUSTOMER LIST
+
 app.get("/api/customers/", (req, res) => {
-  database('customers')
+  knex('customers')
   .select()
   .then((customers) => {
     res.status(200).json(customers);
@@ -22,19 +24,43 @@ app.get("/api/customers/", (req, res) => {
   });
 });
 
+// ROUTES TO ADMIN PAGE
 app.get("/api/admin", (req, res) => {
   res.redirect("/admin")
 });
 
-app.post("/api/admin", (req, res) => {
-  console.log("req.body: ", req.body)
+// GETS PENDING CUSTOMER
+app.get("/api/admin/:statusCode", (req, res) => {
+  knex("customers")
+  .select()
+  .where({statusCode: req.params.statusCode})
+  .then((customers) => {
+    res.status(200).json(customers);
+  })
+  .catch((error) => {
+    res.status(500).json({ error });
+  });
+});
 
+// UPDATES CUSTOMER STATUSCODE
+app.patch("/api/admin/update", (req, res) => {
+  const { id, newStatus } = req.body;
+  return knex("customers").where({id: id}).update({statusCode: newStatus})
+    .then(() => knex("customers").where({id: id + 1}).update({statusCode: 1}) )
+    .then((customers) => {
+      res.status(200).json(customers);
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
+  });
+
+app.post("/api/admin", (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const emailAddress = req.body.emailAddress;
   const statusCode = req.body.statusCode;
-
-  database("customers")
+  knex("customers")
   .insert({
       firstName: req.body.firstName,
       lastName: req.body.lastName,

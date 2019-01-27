@@ -31,7 +31,6 @@ class AdminForm extends Component {
   }
 
   onSubmit = (e) => {
-    e.preventDefault();
     console.log("got to submit")
     const { firstName, lastName, emailAddress, phoneNumber, statusCode } = this.state;
     if (firstName && lastName && emailAddress && phoneNumber) {
@@ -54,9 +53,10 @@ class AdminForm extends Component {
 
 
   render() {
-    const { firstName, lastName, emailAddress, phoneNumber, statusCode, alert } = this.state;
+    const { firstName, lastName, emailAddress, phoneNumber, alert } = this.state;
     return(
       <div className="admin-form-container">
+      <h2 className="">Add to the waitlist</h2>
         <form onSubmit={this.onSubmit} className="admin-form">
           <div className="form-group-a">
             <input

@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import Moment from 'react-moment';
 
 class Waitlist extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   codeSwitch = (code) => {
-    let status = '';
     switch (code) {
       case 0: return "Waiting";
       case 1: return "Contacted";
       case 2: return "Confirmed: Yes";
       case 3: return "Confirmed: No";
+      default: return "Waiting";
     }
   }
 

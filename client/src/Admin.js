@@ -4,15 +4,18 @@ import axios from 'axios';
 import AdminForm from './AdminForm';
 import Waitlist from './Waitlist';
 import AdminLogin from './AdminLogin';
+import Pending from './Pending';
 
 class Admin extends Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     customers: [],
-    isloggedIn: false,
+    isloggedIn: true,
   };
 
   componentDidMount() {
-    const { customers } = this.state;
     axios.get('./api/customers')
       .then((response) => {
         this.setState({
@@ -32,7 +35,9 @@ class Admin extends Component {
     }
 
   render() {
-    const { isloggedIn } = this.state;
+
+    const { isloggedIn, customers } = this.state;
+
     return(
 
       <div>
@@ -46,14 +51,18 @@ class Admin extends Component {
             <li><a href="mailto:danielredwhite@gmail.com">Contact</a></li>
           </ul>
           <h4 className="waitlist-name">Claytek Pottery Studios</h4>
-          <h2 className="title">Add a waiter to the waitlist</h2>
-            <AdminForm customers={this.state.customers}/>
+          <div className="pending">
+          <h4>See who's next in line...</h4>
+          <Pending className="pending"/>
+
+          </div>
+            <AdminForm customers={customers}/>
             <div className="see-more">
               see the waitlist <br />
               <i className="down-arrow"></i>
             </div>
           </div>
-          <Waitlist customers={this.state.customers}/>
+          <Waitlist customers={customers}/>
           </div>
           ) : (
             <div className="admin-layout">

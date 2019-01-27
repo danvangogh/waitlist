@@ -6,9 +6,9 @@
   grid-template-areas:
   ". l l l . . . . m m . ."
   ". b b b b b b . m m . ."
-  ". c c c c c c . . . . ."
-  ". c c c c c c . . . . ."
-  ". c c c c c c . . . . ."
+  ". c c c c c c c c c . ."
+  ". c c c c c c c c c . ."
+  ". . . . . . . . . . . ."
   ". r r r r r r r r r r ."
   ". r r r r r r r r r r ."
   ". e e e e e e e e e e ."
@@ -100,8 +100,8 @@
   grid-template-areas:
   ". l l l . . . . m m . ."
   ". b b b b b b . m m . ."
-  ". c c c c c c . . . . ."
-  ". c c c c c c . . . . ."
+  ". c c c c c c c c . . ."
+  ". c c c c c c c c . . ."
   ". e e e e e e e e e e ."
   ". e e e e e e e e e e ."
   ". e e e e e e e e e e ."
@@ -114,6 +114,11 @@
 
 .admin-form-container {
   grid-area: e;
+}
+
+.pending {
+  grid-area: c;
+  margin-top: -2rem;
 }
 
 .admin-form:extend(.check-form){

@@ -33,6 +33,13 @@ h4 {
   color: white;
   font-weight: 100;
 }
+input {
+  font-size: 2rem;
+}
+button {
+  font-size: 2rem;
+  outline: 0;
+}
 .background,
 .app,
 .admin-layout {
@@ -48,9 +55,6 @@ h4 {
 .result-text {
   font-family: 'Work Sans', sans-serif;
   color: #122059;
-}
-button:focus {
-  outline: 0;
 }
 ul {
   list-style: none;
@@ -71,10 +75,15 @@ li,
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+@media (max-width: 374px) {
+  html {
+    font-size: 6px;
+  }
+}
 .app {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
+  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c c c c . ." ". c c c c c c c c c . ." ". . . . . . . . . . . ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
 }
 .logo-text {
   grid-area: l;
@@ -146,10 +155,14 @@ li,
 .admin-layout {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c . . . . ." ". c c c c c c . . . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . f f f f . . . .";
+  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c c c . . ." ". c c c c c c c c . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . f f f f . . . .";
 }
 .admin-form-container {
   grid-area: e;
+}
+.pending {
+  grid-area: c;
+  margin-top: -2rem;
 }
 .admin-form {
   display: grid;

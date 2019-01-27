@@ -44,6 +44,15 @@ h4 {
   font-weight: 100;
 }
 
+input {
+  font-size: 2rem;
+}
+
+button {
+  font-size: 2rem;
+  outline: 0;
+}
+
 .background {
   background: url("../images/mobile_bg.svg") no-repeat;
   background-size: cover;
@@ -59,10 +68,6 @@ h4 {
 .result-text {
   font-family: @font-family;
   color: #122059;
-}
-
-button:focus {
-  outline: 0;
 }
 
 ul {
@@ -84,4 +89,10 @@ li {
   padding: 3px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+@media (max-width: 374px) {
+  html {
+    font-size: 6px;
+  }
 }

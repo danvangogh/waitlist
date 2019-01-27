@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Results from './Results.js'
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import axios from 'axios'
 
 class FinderForm extends Component {
