@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.get("/api/customers/", (req, res) => {
   knex('customers')
   .select()
+  .orderBy('id', 'asc')
   .then((customers) => {
     res.status(200).json(customers);
   })

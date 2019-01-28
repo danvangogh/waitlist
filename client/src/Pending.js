@@ -15,22 +15,21 @@ class Pending extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  componentDidMount() {
+  componentWillUpdate() {
     axios.get("./api/admin/pending")
-      .then((response) => {
-        const res = response.data[0];
-        this.setState({
-          name: res.firstName + ' ' + res.lastName,
-          email: res.emailAddress,
-          phone: res.phoneNumber,
-          id: res.id,
-          status: res.statusCode,
+    .then((response) => {
+      const res = response.data[0];
+      this.setState({
+        name: res.firstName + ' ' + res.lastName,
+        email: res.emailAddress,
+        phone: res.phoneNumber,
+        id: res.id,
+        status: res.statusCode,
       })
     })
-      .catch(function (error) {
-        console.log(error);
-      });
-    console.log(this.state.name)
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   onChange = (e) => {
@@ -69,7 +68,7 @@ class Pending extends Component {
         <option value="3">Confirmed: Yes</option>
         <option value="4">Confirmed: No</option>
       </select>
-      <button type="button" onClick={this.onClick}>Update</button>
+      <button type="submit" onClick={this.onClick}>Update</button>
       </div>
     )
   }

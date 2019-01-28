@@ -5,9 +5,10 @@ class Waitlist extends Component {
   codeSwitch = (code) => {
     switch (code) {
       case 0: return "Waiting";
-      case 1: return "Contacted";
-      case 2: return "Confirmed: Yes";
-      case 3: return "Confirmed: No";
+      case 1: return "Not yet contacted"
+      case 2: return "Contacted";
+      case 3: return "Confirmed: Yes";
+      case 4: return "Confirmed: No";
       default: return "Waiting";
     }
   }
