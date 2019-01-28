@@ -56,7 +56,7 @@ class AdminForm extends Component {
     const { firstName, lastName, emailAddress, phoneNumber, alert } = this.state;
     return(
       <div className="admin-form-container">
-      <h2 className="">Add to the waitlist</h2>
+      <h2 className="list-head">Add to the waitlist</h2>
         <form onSubmit={this.onSubmit} className="admin-form">
           <div className="form-group-a">
             <input

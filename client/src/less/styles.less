@@ -46,11 +46,16 @@ h4 {
 
 input {
   font-size: 2rem;
+  padding-left: 1rem;
 }
 
 button {
   font-size: 2rem;
   outline: 0;
+}
+select {
+  background-color: white;
+  border: none;
 }
 
 .background {
@@ -67,7 +72,10 @@ button {
 
 .result-text {
   font-family: @font-family;
-  color: #122059;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 ul {
@@ -91,8 +99,31 @@ li {
   -webkit-transform: rotate(45deg);
 }
 
+.next-in-line {
+  margin: 1rem 0 3rem 4rem;
+  font-size: 2rem;
+}
+
 @media (max-width: 374px) {
   html {
     font-size: 6px;
+  }
+}
+@media (min-width: 1026px) {
+  html {
+    font-size: 12px;
+  }
+  input {
+    font-size: 1.5rem;
+  }
+  .background {
+    background: url("../images/bg.svg") center no-repeat;
+    background-size: cover;
+    display: grid;
+    width: 100vw;
+    overflow: auto;
+  }
+  .waitlist-name {
+    text-align: left;
   }
 }

@@ -9,7 +9,7 @@ class Results extends Component {
     if (showQ && index >= 1) {
       return (
           <div className="results">
-            <h4 className="result-text">Hi {name}! <br /> You are #{index} <br /> of: {pending} people waiting.</h4>
+            <h4 className="result-text">Hi {name}! <br /> You are #{index} <br /> of {pending} people in line.</h4>
           </div>
       );
     } else if (showQ && index < 1) {
@@ -21,7 +21,6 @@ class Results extends Component {
     } else if (!showQ) {
       return(
         <div className="results">
-          <h4 className="result-text">waiting...</h4>
         </div>
       )
     }

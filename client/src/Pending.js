@@ -56,18 +56,17 @@ class Pending extends Component {
   render() {
     const { name, email, phone, status } = this.state;
     return(
-      <div>
-      <p>{name}</p>
-      <p>{email}</p>
-      <p>{phone}</p>
-      <p>sweeeeet</p>
-      <select value={status} onChange={this.onChange}>
-        <option value="1">Not yet contacted</option>
-        <option value="2">Contacted</option>
-        <option value="3">Confirmed: Yes</option>
-        <option value="4">Confirmed: No</option>
-      </select>
-      <button type="submit" onClick={this.onClick}>Update</button>
+      <div className="pending-container">
+        <span className="pending-name">{name}</span>
+        <span className="pending-email">{email}</span>
+        <span className="pending-phone">{phone}</span>
+          <select value={status} onChange={this.onChange} className="pending-select">
+            <option value="1">Not yet contacted</option>
+            <option value="2">Contacted</option>
+            <option value="3">Confirmed: Yes</option>
+            <option value="4">Confirmed: No</option>
+          </select>
+        <button type="submit" onClick={this.onClick} className="pending-button">Update</button>
       </div>
     )
   }

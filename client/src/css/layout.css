@@ -35,10 +35,15 @@ h4 {
 }
 input {
   font-size: 2rem;
+  padding-left: 1rem;
 }
 button {
   font-size: 2rem;
   outline: 0;
+}
+select {
+  background-color: white;
+  border: none;
 }
 .background,
 .app,
@@ -54,7 +59,10 @@ button {
 }
 .result-text {
   font-family: 'Work Sans', sans-serif;
-  color: #122059;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 ul {
   list-style: none;
@@ -75,15 +83,39 @@ li,
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+.next-in-line {
+  margin: 1rem 0 3rem 4rem;
+  font-size: 2rem;
+}
 @media (max-width: 374px) {
   html {
     font-size: 6px;
   }
 }
+@media (min-width: 1026px) {
+  html {
+    font-size: 12px;
+  }
+  input {
+    font-size: 1.5rem;
+  }
+  .background,
+  .app,
+  .admin-layout {
+    background: url("../images/bg.svg") center no-repeat;
+    background-size: cover;
+    display: grid;
+    width: 100vw;
+    overflow: auto;
+  }
+  .waitlist-name {
+    text-align: left;
+  }
+}
 .app {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c c c c . ." ". c c c c c c c c c . ." ". . . . . . . . . . . ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
+  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c c . . . ." ". c c c c c c c . . . ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". r r r r r r r r r r ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . . . . . . . . .";
 }
 .logo-text {
   grid-area: l;
@@ -135,7 +167,8 @@ li,
   text-decoration: none;
 }
 .check-button,
-.add-button {
+.add-button,
+.pending-button {
   grid-area: cfb;
   background-color: #1463c1;
   border: 1px solid #1463c1;
@@ -155,7 +188,7 @@ li,
 .admin-layout {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c c c . . ." ". c c c c c c c c . . ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . f f f f . . . .";
+  grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." "c c c c c c c c c c c c" "c c c c c c c c c c c c" "c c c c c c c c c c c c" ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". e e e e e e e e e e ." ". . . . f f f f . . . .";
 }
 .admin-form-container {
   grid-area: e;
@@ -188,6 +221,9 @@ li,
   grid-area: afe;
   margin: auto;
 }
+.list-head {
+  text-align: left;
+}
 .add-button {
   margin-top: 1rem;
 }
@@ -218,69 +254,80 @@ li,
   border-bottom: 1px dashed #777;
   margin-bottom: 1rem;
 }
-/*
-.email {
-  width: 30vw;
-  border: none;
-  // border-bottom: 1px solid #666;
-  border-radius: 2rem;
-  font-size: 1.5rem;
-  line-height: 3rem;
+.pending-container {
+  display: grid;
+  height: 60%;
+  grid-template-areas: ". nm nm bt ." ". em em bt ." ". dd dd dd .";
+  grid-row-gap: 1rem;
+  background: rgba(15, 75, 147, 0.5);
+  padding: 0.5rem 2rem;
+}
+.pending-name {
+  grid-area: nm;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 3.8rem;
+  margin-top: 1rem;
+}
+.pending-email {
+  grid-area: em;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.pending-phone {
+  display: none;
+}
+.pending-button {
+  grid-area: bt;
+  height: 9rem;
+  width: 9rem;
+  border-radius: 5rem;
   text-align: center;
-  background: rgb(5,24,117);
-  background: linear-gradient(321deg, rgba(5,24,117,0.4) 0%, rgba(50,253,254,0.4) 100%);
-  // background-color: lighten(@green, 20%);
-  color: darken(@green, 20%);
-  &:hover {
-    width: 85vw;
-    outline: 0px;
-    -webkit-transition: width .3s ease-in;
-    -moz-transform: scale(.5);
-    -webkit-transition: width .3s ease-out;
+}
+.pending-select {
+  grid-area: dd;
+}
+@media (min-width: 1026px) {
+  html {
+    font-size: 10px;
+  }
+  .app {
+    grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c c . . . ." ". c c c c c c c . . . ." ". . . . . . . . . . . ." ". . . r r r r r r . . ." ". . . r r r r r r . . ." ". . . e e e e e e . . ." ". . . e e e e e e . . ." ". . . e e e e e e . . ." ". . . e e e e e e . . ." ". . . . . . . . . . . .";
+  }
+  .admin-layout {
+    grid-template-areas: ". l l l . . . . m m . ." ". b b b . . . . m m . ." ". . . . e e e e . . . ." ". c c c e e e e . . . ." ". c c c e e e e . . . ." ". c c c e e e e . . . ." ". . . . . . . . . . . ." ". . . . . . . . . . . ." ". . . . . . . . . . . ." ". . . . . . . . . . . ." ". . . . . . . . . . . ." ". . . . f f f f . . . .";
+  }
+  input {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+  }
+  .logo-text {
+    text-align: left;
+    padding-left: 2rem;
+  }
+  .form-group-a,
+  .form-group-b,
+  .form-group-c,
+  .form-group-d {
+    margin: 0.5rem;
+    line-height: 1rem;
+  }
+  .list-head {
+    text-align: center;
+  }
+  .check-button,
+  .add-button,
+  .pending-button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.6rem;
+    margin: 2% auto;
+  }
+  .waitlist-name {
+    text-align: left;
+    padding-left: 2rem;
   }
 }
-
-.email::-webkit-input-placeholder {
-  color: @green;
-}
-
-color: @green;
-}
-
-  color: @green;
-}
-
-  color: @green;
-}
-
-.email:-webkit-autofill {
-    -webkit-box-shadow:0 0 0 50px lighten(@green, 20%) inset;
-    -webkit-text-fill-color: darken(@green, 20%);
-}
-.email:-webkit-autofill:focus {
-    -webkit-box-shadow:0 0 0 50px lighten(@green, 20%) inset;
-    -webkit-text-fill-color: darken(@green, 20%);
-}
-
-.check-button {
-  grid-area: b;
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background-color: lighten(@purple, 10%);
-  border: 1px solid lighten(@purple, 10%);
-  border-radius: 2rem;
-  color: @white;
-  &:active  {
-    background-color: @purple;
-  }
-}
-
-@media (min-width: 580px) {
-  .email {
-    width: 20vw;
-    &:hover {
-      width: 40vw;
-    }
-  }
-}
-*/

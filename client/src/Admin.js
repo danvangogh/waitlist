@@ -52,7 +52,7 @@ class Admin extends Component {
           </ul>
           <h4 className="waitlist-name">Claytek Pottery Studios</h4>
           <div className="pending">
-          <h4>See who's next in line...</h4>
+          <h4 className="next-in-line">The next person in line is...</h4>
           <Pending className="pending"/>
 
           </div>
