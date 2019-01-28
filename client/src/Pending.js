@@ -62,7 +62,6 @@ class Pending extends Component {
       <p>{phone}</p>
       <p>sweeeeet</p>
       <select value={status} onChange={this.onChange}>
-        <option value="0">Waiting</option>
         <option value="1">Not yet contacted</option>
         <option value="2">Contacted</option>
         <option value="3">Confirmed: Yes</option>

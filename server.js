@@ -33,7 +33,11 @@ app.get("/api/admin", (req, res) => {
 // GETS PENDING CUSTOMER
 app.get("/api/admin/pending", (req, res) => {
   knex("customers")
-  .where('statusCode', '<', 3)
+  .where(function () {
+    this
+      .where('statusCode', 1)
+      .orWhere('statusCode', 2)
+  })
   .then((customers) => {
     res.status(200).json(customers);
   })
