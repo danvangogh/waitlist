@@ -90,8 +90,9 @@ class FinderForm extends Component {
         </ul>
         <h4 className="waitlist-name">Claytek Pottery Studios</h4>
           <h2 className="title">Enter your email to see your position in the queue</h2>
+<div className="email-input">
             <form className="check-form">
-              <div className="email-input">
+
                 <input
                   className="email"
                   name="emailAddress"
@@ -104,8 +105,9 @@ class FinderForm extends Component {
                   className="check-button"
                   type="submit"
                   onClick={this.onClick}>Go</button>
-                </div>
+
             </form>
+            </div>
             <Results showQ={this.state.showQ} index={this.state.index} pending={this.state.pending.length} name={this.state.name}/>
         </div>
       </Router>

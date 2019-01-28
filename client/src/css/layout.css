@@ -142,20 +142,19 @@ li,
 }
 .check-form,
 .admin-form {
-  grid-area: e;
   background-color: white;
   border-radius: 3rem 0;
-  display: grid;
   text-align: center;
   margin: 6% 2%;
   padding: 3rem 0;
   -webkit-box-shadow: 10px 10px 15px -11px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 10px 10px 15px -11px rgba(0, 0, 0, 0.7);
   box-shadow: 10px 10px 15px -11px rgba(0, 0, 0, 0.7);
-}
-.email-input {
   display: grid;
   grid-template-areas: "cfa" "cfb";
+}
+.email-input {
+  grid-area: e;
 }
 .email {
   grid-area: cfa;
@@ -169,7 +168,6 @@ li,
 .check-button,
 .add-button,
 .pending-button {
-  grid-area: cfb;
   background-color: #1463c1;
   border: 1px solid #1463c1;
   border-radius: 2rem;
@@ -359,5 +357,9 @@ li,
   }
   .pending-name {
     margin: 0;
+  }
+  .check-form,
+  .admin-form {
+    padding: 3rem 0;
   }
 }

@@ -47,7 +47,6 @@
 }
 
 .check-form {
-  grid-area: e;
   background-color: white;
   border-radius: 3rem 0;
   display: grid;
@@ -57,13 +56,14 @@
   -webkit-box-shadow: 10px 10px 15px -11px rgba(0,0,0,0.7);
   -moz-box-shadow: 10px 10px 15px -11px rgba(0,0,0,0.7);
   box-shadow: 10px 10px 15px -11px rgba(0,0,0,0.7);
-}
-
-.email-input {
   display: grid;
   grid-template-areas:
   "cfa"
   "cfb"
+}
+
+.email-input {
+  grid-area: e;
 }
 
 .email {
@@ -77,7 +77,7 @@
 }
 
 .check-button {
-  grid-area: cfb;
+
   background-color: lighten(@purple, 10%);
   border: 1px solid lighten(@purple, 10%);
   border-radius: 2rem;
@@ -323,5 +323,8 @@
   }
   .pending-name {
     margin: 0;
+  }
+  .check-form {
+    padding: 3rem 0;
   }
 }
