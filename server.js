@@ -50,7 +50,6 @@ app.get("/api/admin/pending", (req, res) => {
 app.patch("/api/admin/update", (req, res) => {
   const { id, newStatus } = req.body;
   if (newStatus >= 3) {
-    console.log("greater than 3")
     return knex("customers").where({id: id}).update({statusCode: newStatus})
       .then(() => knex("customers").where({id: id + 1}).update({statusCode: 1}))
       .then((customers) => {

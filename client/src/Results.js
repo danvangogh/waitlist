@@ -15,7 +15,7 @@ class Results extends Component {
     } else if (showQ && index < 1) {
       return (
         <div className="results">
-          <h4 className="result-text">Oops! Gator can't find that email address.</h4>
+          <h4 className="result-text">Oops! Can't find that email address.</h4>
         </div>
       );
     } else if (!showQ) {
