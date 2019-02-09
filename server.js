@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser  = require("body-parser");
+const bcrypt = require('bcryptjs');
+const cookieSession = require('cookie-session');
 
 const port = 5000;
 
@@ -10,6 +12,12 @@ const knex = require('knex')(configuration);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
 
 // GETS CUSTOMER LIST
 
@@ -89,5 +97,47 @@ app.post("/api/admin", (req, res) => {
     res.status(500).json({ error });
   });
 });
+
+app.post("/api/admin/register", (req, res) => {
+  const { firstName, lastName, emailAddress, password } = req.body;
+  const hashedPassword = bcrypt.hashSync(password, 8);
+  knex("admin_users")
+  .insert({
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      password: hashedPassword,
+  })
+  .then((adminUsers) => {
+    res.status(200).json(adminUsers);
+  })
+  .catch((error) => {
+    res.status(500).json({ error });
+  });
+});
+
+
+
+app.post("/api/admin/login", (req, res) => {
+  const { emailAddress, password } = req.body;
+  const hashedPassword = bcrypt.hashSync(password, 8);
+
+  knex("admin_users")
+  .where({
+    emailAddress: emailAddress
+  })
+  .then((admin_users) => {
+    const user = admin_users[0];
+    if (emailAddress === user.emailAddress && bcrypt.compareSync(password, user.password)) {
+      res.status(200).json(admin_users);
+    } else {
+      res.status(403).send("Incorrect email or address");
+    }
+  })
+  .catch((error) => {
+    res.status(500).json({ error });
+  })
+})
+
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

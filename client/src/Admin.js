@@ -5,6 +5,7 @@ import AdminForm from './AdminForm';
 import Waitlist from './Waitlist';
 import AdminLogin from './AdminLogin';
 import Pending from './Pending';
+import AdminRegister from './AdminRegister';
 
 class Admin extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Admin extends Component {
   }
   state = {
     customers: [],
-    isloggedIn: true,
+    isloggedIn: false,
   };
 
   componentDidMount() {
@@ -29,6 +30,7 @@ class Admin extends Component {
     }
 
     login = (e) => {
+      console.log("got to login");
       this.setState({
         isloggedIn: true,
       })
@@ -74,6 +76,7 @@ class Admin extends Component {
             </ul>
             <h4 className="waitlist-name">Claytek Pottery Studios</h4>
             <AdminLogin login={this.login.bind(this)}/>
+
           </div>
         )}
       </div>
