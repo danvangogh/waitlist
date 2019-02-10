@@ -19,9 +19,10 @@ class Admin extends Component {
   componentDidMount() {
     axios.get('./api/customers')
       .then((response) => {
+        this.login();
         this.setState({
           customers: response.data
-        })
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -30,11 +31,18 @@ class Admin extends Component {
     }
 
     login = (e) => {
-      console.log("got to login");
-      this.setState({
-        isloggedIn: true,
-      })
+      const key = sessionStorage.getItem('key');
+      if (key) {
+        this.setState({
+          isloggedIn: true,
+        });
+      }
     }
+
+    generateRandom = (end) => {
+      return Math.random().toString(16).substr(2).slice(0, end);
+    }
+
 
   render() {
 
@@ -75,7 +83,7 @@ class Admin extends Component {
               <li><a href="mailto:danielredwhite@gmail.com">Contact</a></li>
             </ul>
             <h4 className="waitlist-name">Claytek Pottery Studios</h4>
-            <AdminLogin login={this.login.bind(this)}/>
+            <AdminLogin login={this.login.bind(this)} generateRandom={this.generateRandom.bind(this)}/>
 
           </div>
         )}

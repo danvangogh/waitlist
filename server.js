@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser  = require("body-parser");
 const bcrypt = require('bcryptjs');
-const cookieSession = require('cookie-session');
 
 const port = 5000;
 
@@ -12,12 +11,6 @@ const knex = require('knex')(configuration);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key2'],
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}))
 
 // GETS CUSTOMER LIST
 

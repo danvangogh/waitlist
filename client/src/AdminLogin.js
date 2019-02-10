@@ -17,6 +17,7 @@ class AdminLogin extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const newSession = this.props.generateRandom(6);
     const { emailAddress, password } = this.state;
     if ( emailAddress && password ) {
       axios.post('/api/admin/login', {
@@ -24,6 +25,7 @@ class AdminLogin extends Component {
         password: password
       }).then((res) => {
         if (res.status === 200) {
+          sessionStorage.setItem('key', newSession)
           this.props.login();
         }
       })
@@ -34,7 +36,6 @@ class AdminLogin extends Component {
   }
 
   render() {
-    console.log("props: ", this.props.login)
     const { emailAddress, password } = this.state;
     return(
       <div className="admin-form-container">
