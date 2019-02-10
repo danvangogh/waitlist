@@ -51,7 +51,6 @@ app.get("/api/admin/pending", (req, res) => {
 app.patch("/api/admin/update", (req, res) => {
   const { id, newStatus } = req.body;
   if (newStatus >= 3) {
-    console.log("greater than 3")
     return knex("customers").where({id: id}).update({statusCode: newStatus})
       .then(() => knex("customers").where({id: id + 1}).update({statusCode: 1}))
       .then((customers) => {
@@ -72,16 +71,13 @@ app.patch("/api/admin/update", (req, res) => {
   });
 
 app.post("/api/admin", (req, res) => {
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const emailAddress = req.body.emailAddress;
-  const statusCode = req.body.statusCode;
+  const { firstName, lastName, emailAddress, statusCode } = req.body;
   knex("customers")
   .insert({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      emailAddress: req.body.emailAddress,
-      statusCode: req.body.statusCode,
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      statusCode: statusCode,
   })
   .then((customers) => {
     res.status(200).json(customers);
@@ -121,6 +117,7 @@ app.post("/api/admin/login", (req, res) => {
   })
   .then((admin_users) => {
     const user = admin_users[0];
+    console.log("admin_users: ", admin_users)
     if (emailAddress === user.emailAddress && bcrypt.compareSync(password, user.password)) {
       res.status(200).json(admin_users);
     } else {

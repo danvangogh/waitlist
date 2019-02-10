@@ -24,6 +24,7 @@ class AdminLogin extends Component {
         emailAddress: emailAddress,
         password: password
       }).then((res) => {
+        console.log("got here")
         if (res.status === 200) {
           sessionStorage.setItem('key', newSession)
           this.props.login();

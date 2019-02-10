@@ -15,7 +15,7 @@ class Pending extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  componentWillUpdate() {
+  componentdidMount() {
     axios.get("./api/admin/pending")
     .then((response) => {
       const res = response.data[0];
@@ -33,7 +33,6 @@ class Pending extends Component {
   }
 
   onChange = (e) => {
-    console.log(e.target.value)
     this.setState({
       newStatus: e.target.value
     })
@@ -60,7 +59,7 @@ class Pending extends Component {
         <span className="pending-name">{name}</span>
         <span className="pending-email">{email}</span>
         <span className="pending-phone">{phone}</span>
-          <select value={status} onChange={this.onChange} className="pending-select">
+          <select defaultValue={status} onChange={this.onChange} className="pending-select">
             <option value="1">Not yet contacted</option>
             <option value="2">Contacted</option>
             <option value="3">Confirmed: Yes</option>

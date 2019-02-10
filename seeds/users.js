@@ -9,6 +9,10 @@ exports.seed = function(knex, Promise) {
          lastName: 'LePown',
          emailAddress: '1@2.com',
          password: '123'},
+         {firstName: 'Action',
+          lastName: 'Bronson',
+          emailAddress: 'a@a.a',
+          password: 'a'},
       ]);
     });
 };

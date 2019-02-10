@@ -17,6 +17,7 @@ class AdminRegister extends Component {
   }
 
   onSubmit = (e) => {
+    e.preventDefault();
     console.log("submission")
     const { firstName, lastName, emailAddress, password } = this.state;
     axios.post("./api/admin/register", {
