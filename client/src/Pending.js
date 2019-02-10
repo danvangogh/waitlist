@@ -15,7 +15,7 @@ class Pending extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  componentdidMount() {
+  componentDidMount() {
     axios.get("./api/admin/pending")
     .then((response) => {
       const res = response.data[0];
@@ -49,6 +49,7 @@ class Pending extends Component {
     .catch(function (error) {
       console.log(error);
     });
+    window.location.reload();
   }
 
 
