@@ -43,6 +43,10 @@ class Admin extends Component {
       return Math.random().toString(16).substr(2).slice(0, end);
     }
 
+    logOut = () => {
+      sessionStorage.clear();
+    }
+
 
   render() {
 
@@ -59,6 +63,7 @@ class Admin extends Component {
             <li><a href="/">Home</a></li>
             <li><a href="/admin">Admin</a></li>
             <li><a href="mailto:danielredwhite@gmail.com">Contact</a></li>
+            <li><a href="/" onClick={this.logOut}>Logout</a></li>
           </ul>
           <h4 className="waitlist-name">Claytek Pottery Studios</h4>
           <div className="pending">
