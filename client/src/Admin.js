@@ -14,6 +14,7 @@ class Admin extends Component {
   state = {
     customers: [],
     isloggedIn: false,
+    adminName: '',
   };
 
   componentDidMount() {
@@ -32,11 +33,21 @@ class Admin extends Component {
 
     login = (e) => {
       const key = sessionStorage.getItem('key');
+      const name = sessionStorage.getItem('name')
       if (key) {
+        console.log("got to login!!!!!!!!!!!!");
+        console.log("name: ", name);
         this.setState({
           isloggedIn: true,
+          adminName: name,
         });
       }
+    }
+
+    adminGreet = (user) => {
+      console.log("got to adminGreet");
+      console.log("name in adminGreet: ", user);
+      this.setState({adminName: user})
     }
 
     generateRandom = (end) => {
@@ -50,8 +61,8 @@ class Admin extends Component {
 
   render() {
 
-    const { isloggedIn, customers } = this.state;
-
+    const { isloggedIn, customers, adminName } = this.state;
+    console.log("adminName: ", adminName)
     return(
 
       <div>
@@ -66,8 +77,9 @@ class Admin extends Component {
             <li><a href="/" onClick={this.logOut}>Logout</a></li>
           </ul>
           <h4 className="waitlist-name">Claytek Pottery Studios</h4>
+          <h2 className="greeting">Hi {adminName}</h2>
           <div className="pending">
-          <h4 className="next-in-line">The next person in line is...</h4>
+          <h2 className="next-in-line">Next in line...</h2>
           <Pending className="pending"/>
 
           </div>
@@ -88,8 +100,8 @@ class Admin extends Component {
               <li><a href="mailto:danielredwhite@gmail.com">Contact</a></li>
             </ul>
             <h4 className="waitlist-name">Claytek Pottery Studios</h4>
-            <AdminLogin login={this.login.bind(this)} generateRandom={this.generateRandom.bind(this)}/>
-
+            <AdminLogin login={this.login.bind(this)} generateRandom={this.generateRandom.bind(this)} adminGreet={this.adminGreet.bind(this)}/>
+            <AdminRegister login={this.login.bind(this)} generateRandom={this.generateRandom.bind(this)} adminGreet={this.adminGreet.bind(this)}/>
           </div>
         )}
       </div>

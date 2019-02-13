@@ -5,6 +5,11 @@ body {
   margin: 0px;
   padding: 0px;
 }
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+}
 h1 {
   font-size: 3rem;
   color: white;
@@ -28,6 +33,18 @@ h4 {
   color: white;
   font-weight: 100;
 }
+input {
+  font-size: 2rem;
+  padding-left: 1rem;
+}
+button {
+  font-size: 2rem;
+  outline: 0;
+}
+select {
+  background-color: white;
+  border: none;
+}
 .background {
   background: url("../images/mobile_bg.svg") no-repeat;
   background-size: cover;
@@ -40,10 +57,10 @@ h4 {
 }
 .result-text {
   font-family: 'Work Sans', sans-serif;
-  color: #122059;
-}
-button:focus {
-  outline: 0;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 ul {
   list-style: none;
@@ -54,4 +71,39 @@ li {
   font-family: 'Work Sans', sans-serif;
   margin-top: 1rem;
   font-size: 1.6rem;
+}
+.down-arrow {
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.next-in-line {
+  margin: 1rem 0 3rem 4rem;
+  font-size: 2rem;
+}
+@media (max-width: 374px) {
+  html {
+    font-size: 6px;
+  }
+}
+@media (min-width: 1026px) {
+  html {
+    font-size: 12px;
+  }
+  input {
+    font-size: 1.5rem;
+  }
+  .background {
+    background: url("../images/bg.svg") center no-repeat;
+    background-size: cover;
+    display: grid;
+    width: 100vw;
+    overflow: auto;
+  }
+  .waitlist-name {
+    text-align: left;
+  }
 }

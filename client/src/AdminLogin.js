@@ -24,9 +24,10 @@ class AdminLogin extends Component {
         emailAddress: emailAddress,
         password: password
       }).then((res) => {
-        console.log("got here")
         if (res.status === 200) {
+          this.props.adminGreet(res.data[0].firstName);
           sessionStorage.setItem('key', newSession)
+          sessionStorage.setItem('name', res.data[0].firstName)
           this.props.login();
         }
       })
@@ -40,6 +41,7 @@ class AdminLogin extends Component {
     const { emailAddress, password } = this.state;
     return(
       <div className="admin-form-container">
+      <h2>Login</h2>
         <form className="admin-form" onSubmit={this.handleSubmit}>
           <div className="form-group-a">
             <input

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import NumberFormat from 'react-number-format';
 
 class AdminForm extends Component {
   constructor(props) {
@@ -34,7 +35,6 @@ class AdminForm extends Component {
     console.log("got to submit")
     const { firstName, lastName, emailAddress, phoneNumber, statusCode } = this.state;
     if (firstName && lastName && emailAddress && phoneNumber) {
-      console.log("got to next")
       axios.post("./api/admin", {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
@@ -55,7 +55,7 @@ class AdminForm extends Component {
   render() {
     const { firstName, lastName, emailAddress, phoneNumber, alert } = this.state;
     return(
-      <div className="admin-form-container">
+      <div className="admin-form-container-r">
       <h2 className="list-head">Add to the waitlist</h2>
         <form onSubmit={this.onSubmit} className="admin-form">
           <div className="form-group-a">
@@ -86,8 +86,9 @@ class AdminForm extends Component {
               onChange={this.onChange}/>
           </div>
           <div className="form-group-d">
-            <input
-              type="text"
+            <NumberFormat
+              format={"###-###-####"}
+              mask="_"
               className="email"
               name="phoneNumber"
               placeholder="Phone Number"

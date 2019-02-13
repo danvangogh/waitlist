@@ -83,10 +83,6 @@ li,
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-.next-in-line {
-  margin: 1rem 0 3rem 4rem;
-  font-size: 2rem;
-}
 @media (max-width: 374px) {
   html {
     font-size: 6px;
@@ -224,6 +220,7 @@ li,
 }
 .add-button {
   margin-top: 1rem;
+  width: 8em;
 }
 .see-more {
   grid-area: f;
@@ -252,31 +249,29 @@ li,
   border-bottom: 1px dashed #777;
   margin-bottom: 1rem;
 }
+.greeting {
+  display: none;
+}
 .pending-container {
   display: grid;
   height: 60%;
   grid-template-areas: ". nm nm bt ." ". em em bt ." ". dd dd dd .";
-  background: rgba(15, 75, 147, 0.5);
+  background: rgba(15, 75, 147, 0.75);
   border-radius: 2rem 0 2rem 0;
   padding: 0.5rem 2rem;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
 }
 .pending-name {
   grid-area: nm;
-  color: white;
-  font-family: 'Work Sans', sans-serif;
   font-weight: 600;
   font-size: 3.8rem;
   margin-top: 1.5rem;
 }
 .pending-email {
   grid-area: em;
-  color: white;
-  font-family: 'Work Sans', sans-serif;
   font-size: 2.2rem;
   margin-bottom: 1rem;
-}
-.pending-phone {
-  display: none;
 }
 .pending-button {
   grid-area: bt;
@@ -297,7 +292,13 @@ li,
     grid-template-areas: ". l l l . . . . m m . ." ". b b b b b b . m m . ." ". c c c c c c c . . . ." ". c c c c c c c . . . ." ". . . r r r r r r . . ." ". . . r r r r r r . . ." ". . . r r r r r r . . ." ". . . e e e e e e . . ." ". . . e e e e e e . . ." ". . . e e e e e e . . ." ". . . e e e e e e . . ." ". . . . . . . . . . . .";
   }
   .admin-layout {
-    grid-template-areas: ". l l l . . . . m m . ." ". b b b c c c c m m . ." ". . . . c c c c . . . ." ". . . . c c c c . . . ." ". . . . e e e e . . . ." ". . . . e e e e . . . ." ". . . . e e e e . . . ." ". . . . e e e e . . . ." ". . . . e e e e . . . ." ". . . . e e e e . . . ." ". . . . . . . . . . . ." ". . . . f f f f . . . .";
+    grid-template-areas: ". l l l . . . . m m . ." ". b b b . . . . m m . ." ". . . . . . . . . . . ." ". g g g g . . . . . . ." ". . . . . . . e e e e ." ". c c c c . . e e e e ." ". c c c c . . e e e e ." ". c c c c . . e e e e ." ". c c c c . . e e e e ." ". . . . . . . e e e e ." ". . . . . . . . . . . ." ". . . . f f f f . . . .";
+  }
+  .pending-container {
+    text-align: center;
+    grid-template-areas: ". nm nm ." ". em em ." ". ph ph ." ". dd dd ." ". bt bt .";
+    padding: 2.5em;
+    height: 29em;
   }
   input {
     font-size: 1.5rem;
@@ -315,10 +316,21 @@ li,
     line-height: 1rem;
   }
   .admin-form-container {
+    grid-area: c;
+    margin-top: -2rem;
+  }
+  .admin-form-container-r {
+    grid-area: e;
     margin-top: -2rem;
   }
   .list-head {
     text-align: center;
+  }
+  .greeting {
+    grid-area: g;
+    display: flex;
+    text-align: left;
+    color: white;
   }
   .check-button,
   .pending-button,
@@ -333,22 +345,15 @@ li,
     text-align: left;
     padding-left: 2rem;
   }
-  .pending {
-    margin: 0;
-  }
   .next-in-line {
     line-height: 1rem;
     margin: 1rem;
-  }
-  .pending-container {
-    background: none;
   }
   .pending-button {
     grid-area: bt;
     margin-top: 2rem;
     height: 4rem;
-    width: 100%;
-    border-radius: 5rem;
+    width: 80%;
     text-align: center;
   }
   .pending-select {
@@ -357,6 +362,11 @@ li,
   }
   .pending-name {
     margin: 0;
+  }
+  .pending-phone {
+    font-size: 2.2rem;
+    line-height: 1rem;
+    grid-area: ph;
   }
   .check-form,
   .admin-form {

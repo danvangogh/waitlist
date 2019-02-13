@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class Results extends Component {
-  constructor(props) {
-    super(props)
-  }
+
   render() {
     const { showQ, index, pending, name } = this.props
     if (showQ && index >= 1) {

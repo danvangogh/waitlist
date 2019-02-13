@@ -26,6 +26,58 @@ app.get("/api/customers/", (req, res) => {
   });
 });
 
+// SEARCHES FOR WAITING CUSTOMER
+// 
+// app.get("/api/customers/:email", (req, res) => {
+// const other = "guy";
+// console.log("other", other);
+//   knex('customers')
+//   // .where({emailAddress: req.params.email})
+//   .select('*')
+//
+//   .then((customers, other) => {
+//     console.log("customers: ", customers.length);
+//
+//     res.status(200).json({ customers });
+//   })
+//   .catch((error) => {
+//     res.status(500).json({ error });
+//   });
+// })
+
+// FINDS INDEX OF WAITING CUSTOMER
+
+// const findIndex = (searchingCustomer) => {
+//   knex('customers')
+//     .select('*')
+//     .then((customers, findIndex) => {
+//       const pendingEntries = [];
+//       const confirmedEntries = [];
+//       const address = searchingCustomer[0].emailAddress;
+//
+//       let userIndex = 0;
+//       let tru = 0;
+//       let currentIndex = 0;
+//       let fName = "";
+//       customers.forEach(function(customer, index) {
+//         if (customer.statusCode >= 3) {
+//           confirmedEntries.push(customer)
+//         } else {
+//           pendingEntries.push(customer)
+//         }
+//         if (customer.emailAddress === address) {
+//           const firName = customer.firstName;
+//           userIndex = index + 1;
+//         }
+//       })
+//
+//       tru = confirmedEntries.length;
+//       currentIndex = userIndex - tru;
+//       console.log("userIndex inside:", userIndex);
+//     });
+//     return currentIndex;
+//   }
+
 // ROUTES TO ADMIN PAGE
 app.get("/api/admin", (req, res) => {
   res.redirect("/admin")
