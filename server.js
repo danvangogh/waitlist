@@ -12,6 +12,89 @@ const knex = require('knex')(configuration);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+
+// SEARCHES FOR WAITING CUSTOMER
+//
+app.get("/api/customers/:email", (req, res) => {
+const other = "guy";
+console.log("other", other);
+  knex('customers')
+  // .where({emailAddress: req.params.email})
+  .select('*')
+
+  .then((customers, other) => {
+    promise.all([findIndex(req.params.email), findIndex(customer)])
+
+
+
+
+    console.log("customers: ", customers.length);
+    findCustomer(req.params.email)
+    .then(customer => {
+      findIndex(customer)
+      .then(index => {
+        res.status(200).json({
+          customer: customer,
+          index: index,
+         });
+      })
+    });
+
+  })
+  .catch((error) => {
+    res.status(500).json({ error });
+  });
+})
+
+const findCustomer = (email) => {
+  return knex('customers')
+  .where('emailAddress', email)
+  .then(customers => {
+    let customer = customers[0];
+    return customer
+  })
+}
+
+// FINDS INDEX OF WAITING CUSTOMER
+
+const findIndex = (searchingCustomer) => {
+  return knex('customers')
+    .select('*')
+    .then((customers, findIndex) => {
+      const pendingEntries = [];
+      const confirmedEntries = [];
+      const address = searchingCustomer.emailAddress;
+
+      let userIndex = 0;
+      let tru = 0;
+      let currentIndex = 0;
+      let fName = "";
+      customers.forEach(function(customer, index) {
+        if (customer.statusCode >= 3) {
+          confirmedEntries.push(customer)
+        } else {
+          pendingEntries.push(customer)
+        }
+        if (customer.emailAddress === address) {
+          const firName = customer.firstName;
+          userIndex = index + 1;
+        }
+      })
+
+      tru = confirmedEntries.length;
+      currentIndex = userIndex - tru;
+      console.log("userIndex inside:", userIndex);
+
+      return userIndex;
+    });
+  }
+
+// ROUTES TO ADMIN PAGE
+app.get("/api/admin", (req, res) => {
+  res.redirect("/admin")
+});
+
 // GETS CUSTOMER LIST
 
 app.get("/api/customers/", (req, res) => {
@@ -24,63 +107,6 @@ app.get("/api/customers/", (req, res) => {
   .catch((error) => {
     res.status(500).json({ error });
   });
-});
-
-// SEARCHES FOR WAITING CUSTOMER
-// 
-// app.get("/api/customers/:email", (req, res) => {
-// const other = "guy";
-// console.log("other", other);
-//   knex('customers')
-//   // .where({emailAddress: req.params.email})
-//   .select('*')
-//
-//   .then((customers, other) => {
-//     console.log("customers: ", customers.length);
-//
-//     res.status(200).json({ customers });
-//   })
-//   .catch((error) => {
-//     res.status(500).json({ error });
-//   });
-// })
-
-// FINDS INDEX OF WAITING CUSTOMER
-
-// const findIndex = (searchingCustomer) => {
-//   knex('customers')
-//     .select('*')
-//     .then((customers, findIndex) => {
-//       const pendingEntries = [];
-//       const confirmedEntries = [];
-//       const address = searchingCustomer[0].emailAddress;
-//
-//       let userIndex = 0;
-//       let tru = 0;
-//       let currentIndex = 0;
-//       let fName = "";
-//       customers.forEach(function(customer, index) {
-//         if (customer.statusCode >= 3) {
-//           confirmedEntries.push(customer)
-//         } else {
-//           pendingEntries.push(customer)
-//         }
-//         if (customer.emailAddress === address) {
-//           const firName = customer.firstName;
-//           userIndex = index + 1;
-//         }
-//       })
-//
-//       tru = confirmedEntries.length;
-//       currentIndex = userIndex - tru;
-//       console.log("userIndex inside:", userIndex);
-//     });
-//     return currentIndex;
-//   }
-
-// ROUTES TO ADMIN PAGE
-app.get("/api/admin", (req, res) => {
-  res.redirect("/admin")
 });
 
 // GETS PENDING CUSTOMER

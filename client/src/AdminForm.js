@@ -18,7 +18,7 @@ class AdminForm extends Component {
   emailcheck(userEmail) {
     let { customers } = this.props;
     for (let cust in customers) {
-      if (userEmail == customers[cust].emailAddress) {
+      if (userEmail === customers[cust].emailAddress) {
         this.setState({
           alert: 'Email already taken'
         });

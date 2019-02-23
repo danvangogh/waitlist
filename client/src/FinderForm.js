@@ -26,7 +26,7 @@ class FinderForm extends Component {
       .catch(function (error) {
         console.log(error);
       });
-      console.log(this.state.customers)
+      // console.log(this.state.customers)
     }
 
   onChange = (e) => {

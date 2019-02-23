@@ -8,9 +8,6 @@ import Pending from './Pending';
 import AdminRegister from './AdminRegister';
 
 class Admin extends Component {
-  constructor(props) {
-    super(props)
-  }
   state = {
     customers: [],
     isloggedIn: false,
@@ -28,15 +25,12 @@ class Admin extends Component {
       .catch(function (error) {
         console.log(error);
       });
-      console.log(this.state.customers)
     }
 
     login = (e) => {
       const key = sessionStorage.getItem('key');
       const name = sessionStorage.getItem('name')
       if (key) {
-        console.log("got to login!!!!!!!!!!!!");
-        console.log("name: ", name);
         this.setState({
           isloggedIn: true,
           adminName: name,
@@ -45,8 +39,6 @@ class Admin extends Component {
     }
 
     adminGreet = (user) => {
-      console.log("got to adminGreet");
-      console.log("name in adminGreet: ", user);
       this.setState({adminName: user})
     }
 
@@ -62,7 +54,7 @@ class Admin extends Component {
   render() {
 
     const { isloggedIn, customers, adminName } = this.state;
-    console.log("adminName: ", adminName)
+
     return(
 
       <div>

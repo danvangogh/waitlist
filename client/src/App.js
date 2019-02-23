@@ -4,7 +4,6 @@ import Admin from './Admin';
 import FinderForm from './FinderForm.js';
 import './css/styles.css';
 import './css/layout.css';
-import axios from 'axios';
 
 class App extends Component {
 

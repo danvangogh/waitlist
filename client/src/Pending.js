@@ -55,7 +55,6 @@ class Pending extends Component {
 
   render() {
     const { name, email, phone, status } = this.state;
-    console.log("state: ", this.state);
     return(
       <div className="pending-container">
         <span className="pending-name">{name}</span>

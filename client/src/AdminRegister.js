@@ -20,7 +20,7 @@ class AdminRegister extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const newSession = this.props.generateRandom(6);
-    console.log("submission")
+    // console.log("submission")
     const { firstName, lastName, emailAddress, password } = this.state;
     axios.post("./api/admin/register", {
       firstName: firstName.trim(),
@@ -40,7 +40,7 @@ class AdminRegister extends Component {
   }
 
   render() {
-    console.log("this.props: ", this.props)
+    // console.log("this.props: ", this.props)
     const { firstName, lastName, emailAddress, password } = this.state;
     return(
       <div className="admin-form-container-r">
