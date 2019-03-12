@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 
 // SEARCHES FOR WAITING CUSTOMER
-//
+
 app.get("/api/customers/:email", (req, res) => {
 const other = "guy";
 console.log("other", other);
@@ -24,12 +24,7 @@ console.log("other", other);
   .select('*')
 
   .then((customers, other) => {
-    promise.all([findIndex(req.params.email), findIndex(customer)])
-
-
-
-
-    console.log("customers: ", customers.length);
+  //   promise.all([findIndex(req.params.email), findIndex(customer)])
     findCustomer(req.params.email)
     .then(customer => {
       findIndex(customer)
@@ -40,7 +35,6 @@ console.log("other", other);
          });
       })
     });
-
   })
   .catch((error) => {
     res.status(500).json({ error });

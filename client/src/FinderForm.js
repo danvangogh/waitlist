@@ -49,6 +49,9 @@ class FinderForm extends Component {
     const confirmedEntries = [];
     const address = this.state.emailAddress
 
+
+    
+
     let userIndex = 0;
     let tru = 0;
     let currentIndex = 0;
@@ -67,6 +70,10 @@ class FinderForm extends Component {
       tru = confirmedEntries.length;
       currentIndex = userIndex - tru
     })
+
+
+
+
     this.setState({
       index: currentIndex,
       showQ: true,
