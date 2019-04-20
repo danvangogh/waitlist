@@ -24,7 +24,6 @@ console.log("other", other);
   .select('*')
 
   .then((customers, other) => {
-  //   promise.all([findIndex(req.params.email), findIndex(customer)])
     findCustomer(req.params.email)
     .then(customer => {
       findIndex(customer)
@@ -32,6 +31,7 @@ console.log("other", other);
         res.status(200).json({
           customer: customer,
           index: index,
+          // listLength: index[1],
          });
       })
     });
@@ -59,8 +59,8 @@ const findIndex = (searchingCustomer) => {
       const pendingEntries = [];
       const confirmedEntries = [];
       const address = searchingCustomer.emailAddress;
-
       let userIndex = 0;
+      let indices = {};
       let tru = 0;
       let currentIndex = 0;
       let fName = "";
@@ -71,16 +71,19 @@ const findIndex = (searchingCustomer) => {
           pendingEntries.push(customer)
         }
         if (customer.emailAddress === address) {
-          const firName = customer.firstName;
           userIndex = index + 1;
         }
       })
-
-      tru = confirmedEntries.length;
-      currentIndex = userIndex - tru;
+      let entryLength = pendingEntries.length;
+      console.log(entryLength);
+      // tru = confirmedEntries.length;
+      // currentIndex = userIndex - tru;
       console.log("userIndex inside:", userIndex);
-
-      return userIndex;
+      console.log("pendingEntries.length:", pendingEntries.length);
+      indices.userIndex = userIndex;
+      indices.listLength = pendingEntries.length;
+      console.log(indices);
+      return indices;
     });
   }
 
