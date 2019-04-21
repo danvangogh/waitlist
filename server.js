@@ -12,17 +12,11 @@ const knex = require('knex')(configuration);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-
 // SEARCHES FOR WAITING CUSTOMER
 
 app.get("/api/customers/:email", (req, res) => {
-const other = "guy";
-console.log("other", other);
   knex('customers')
-  // .where({emailAddress: req.params.email})
-  .select('*')
-
+  // .select('*')
   .then((customers, other) => {
     findCustomer(req.params.email)
     .then(customer => {
@@ -31,7 +25,6 @@ console.log("other", other);
         res.status(200).json({
           customer: customer,
           index: index,
-          // listLength: index[1],
          });
       })
     });
@@ -51,38 +44,24 @@ const findCustomer = (email) => {
 }
 
 // FINDS INDEX OF WAITING CUSTOMER
-
 const findIndex = (searchingCustomer) => {
   return knex('customers')
     .select('*')
     .then((customers, findIndex) => {
       const pendingEntries = [];
-      const confirmedEntries = [];
       const address = searchingCustomer.emailAddress;
       let userIndex = 0;
       let indices = {};
-      let tru = 0;
-      let currentIndex = 0;
-      let fName = "";
       customers.forEach(function(customer, index) {
-        if (customer.statusCode >= 3) {
-          confirmedEntries.push(customer)
-        } else {
+        if (customer.statusCode < 3) {
           pendingEntries.push(customer)
         }
         if (customer.emailAddress === address) {
           userIndex = index + 1;
         }
       })
-      let entryLength = pendingEntries.length;
-      console.log(entryLength);
-      // tru = confirmedEntries.length;
-      // currentIndex = userIndex - tru;
-      console.log("userIndex inside:", userIndex);
-      console.log("pendingEntries.length:", pendingEntries.length);
       indices.userIndex = userIndex;
       indices.listLength = pendingEntries.length;
-      console.log(indices);
       return indices;
     });
   }
@@ -93,7 +72,6 @@ app.get("/api/admin", (req, res) => {
 });
 
 // GETS CUSTOMER LIST
-
 app.get("/api/customers/", (req, res) => {
   knex('customers')
   .select()
