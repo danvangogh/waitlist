@@ -16,10 +16,11 @@ app.use(bodyParser.json());
 
 app.get("/api/customers/:email", (req, res) => {
   knex('customers')
-  // .select('*')
+  .select('*')
   .then((customers, other) => {
     findCustomer(req.params.email)
     .then(customer => {
+      console.log("customer:", customer);
       findIndex(customer)
       .then(index => {
         res.status(200).json({
@@ -55,6 +56,8 @@ const findIndex = (searchingCustomer) => {
       customers.forEach(function(customer, index) {
         if (customer.statusCode < 3) {
           pendingEntries.push(customer)
+        } else {
+          userIndex = 0;
         }
         if (customer.emailAddress === address) {
           userIndex = index + 1;
