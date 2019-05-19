@@ -16,10 +16,6 @@ class FinderForm extends Component {
     };
   }
 
-  componentWillUpdate() {
-      // console.log(this.state.customers)
-    }
-
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value.toLowerCase() });
     if ((this.state.emailAddress).length <= 1) {
@@ -48,49 +44,6 @@ class FinderForm extends Component {
       });
     }
   }
-  //
-  // sorter = (arr) => {
-  //   const pendingEntries = [];
-  //   const confirmedEntries = [];
-  //   const address = this.state.emailAddress
-  //
-  //
-  //
-  //
-  //   let userIndex = 0;
-  //   let tru = 0;
-  //   let currentIndex = 0;
-  //   let fName = "";
-  //
-  //   arr.forEach(function(customer, index) {
-  //     if (customer.statusCode >= 3) {
-  //       confirmedEntries.push(customer)
-  //     } else {
-  //       pendingEntries.push(customer)
-  //     }
-  //     if (customer.emailAddress === address) {
-  //       fName = customer.firstName;
-  //       userIndex = index + 1;
-  //     }
-  //     tru = confirmedEntries.length;
-  //     currentIndex = userIndex - tru
-  //   })
-  //
-    // this.setState({
-    //   index: currentIndex,
-    //   showQ: true,
-    //   pending: pendingEntries,
-    //   name: fName,
-    // });
-  // }
-
-  // emailSearch = (email) => {
-  //   axios.get(`/api/customers/${email}`)
-  //   .then((response) => {
-  //     console.log("response: ", response)
-  //     console.log("response.data: ", response.data)
-  //   })
-  // }
 
   render() {
 

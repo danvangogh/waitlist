@@ -34,7 +34,8 @@ class Pending extends Component {
 
   onChange = (e) => {
     this.setState({
-      newStatus: e.target.value
+      newStatus: e.target.value,
+      status: e.target.value
     })
   }
 
@@ -54,7 +55,7 @@ class Pending extends Component {
 
 
   render() {
-    const { name, email, phone, status } = this.state;
+    const { name, email, phone, status, newStatus } = this.state;
     return(
       <div className="pending-container">
         <span className="pending-name">{name}</span>
