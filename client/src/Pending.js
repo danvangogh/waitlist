@@ -10,7 +10,7 @@ class Pending extends Component {
       phone: '',
       id: 0,
       status: 1,
-      newStatus: 0
+      newStatus: 1
     }
     this.onClick = this.onClick.bind(this);
   }
@@ -61,7 +61,7 @@ class Pending extends Component {
         <span className="pending-name">{name}</span>
         <span className="pending-email">{email}</span>
         <span className="pending-phone">{phone}</span>
-          <select defaultValue={status} onChange={this.onChange} className="pending-select">
+          <select value={status} onChange={this.onChange} className="pending-select">
             <option value="1">Not yet contacted</option>
             <option value="2">Contacted</option>
             <option value="3">Confirmed: Yes</option>
